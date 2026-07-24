@@ -1,0 +1,3779 @@
+openapi: 3.1.0
+info:
+  title: Quo Public Calls Webhooks API
+  version: 1.0.0
+  description: API for connecting with Quo.
+  contact:
+    name: Quo Support
+    email: support@quo.com
+    url: https://support.quo.com/
+  termsOfService: https://www.quo.com/terms
+servers:
+- description: Production server
+  url: https://api.quo.com
+security:
+- apiKey: []
+tags:
+- description: Operations related to webhooks
+  name: Webhooks
+paths:
+  /v1/webhooks:
+    get:
+      tags:
+      - Webhooks
+      summary: Lists all webhooks
+      description: List all webhooks for a user.
+      operationId: listWebhooks_v1
+      parameters:
+      - in: query
+        name: userId
+        required: false
+        schema:
+          description: The unique identifier the user. Defaults to the workspace owner.
+          examples:
+          - U55wgP5I5
+          pattern: ^US(.*)$
+          type: string
+        example: U55wgP5I5
+      security:
+      - apiKey: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - data
+                properties:
+                  data:
+                    type: array
+                    items:
+                      anyOf:
+                      - type: object
+                        required:
+                        - id
+                        - userId
+                        - orgId
+                        - label
+                        - status
+                        - url
+                        - key
+                        - createdAt
+                        - updatedAt
+                        - deletedAt
+                        - events
+                        - resourceIds
+                        properties:
+                          id:
+                            description: The webhook's ID
+                            examples:
+                            - WHabcd1234
+                            pattern: ^WH(.*)$
+                            type: string
+                            example: WHabcd1234
+                          userId:
+                            description: The unique identifier of the user that created the webhook.
+                            examples:
+                            - US123abc
+                            pattern: ^US(.*)$
+                            type: string
+                            example: US123abc
+                          orgId:
+                            description: The unique identifier of the organization the webhook belongs to
+                            examples:
+                            - OR1223abc
+                            pattern: ^OR(.*)$
+                            type: string
+                            example: OR1223abc
+                          label:
+                            anyOf:
+                            - description: The webhook's label.
+                              examples:
+                              - my webhook label
+                              type: string
+                              example: my webhook label
+                            - type: 'null'
+                          status:
+                            type: string
+                            enum:
+                            - enabled
+                            - disabled
+                            default: enabled
+                            description: The status of the webhook.
+                            examples:
+                            - enabled
+                            example: enabled
+                          url:
+                            format: uri
+                            description: The endpoint that receives events from the webhook.
+                            examples:
+                            - https://example.com/
+                            type: string
+                            example: https://example.com/
+                          key:
+                            description: Webhook key
+                            examples:
+                            - example-key
+                            type: string
+                            example: example-key
+                          createdAt:
+                            description: The date the webhook was created at, in ISO 8601 format.
+                            examples:
+                            - '2022-01-01T00:00:00Z'
+                            format: date-time
+                            type: string
+                            example: '2022-01-01T00:00:00Z'
+                          updatedAt:
+                            description: The date the webhook was updated at, in ISO 8601 format.
+                            examples:
+                            - '2022-01-01T00:00:00Z'
+                            format: date-time
+                            type: string
+                            example: '2022-01-01T00:00:00Z'
+                          deletedAt:
+                            anyOf:
+                            - description: The date the webhook was deleted at, in ISO 8601 format.
+                              examples:
+                              - '2022-01-01T00:00:00Z'
+                              format: date-time
+                              type: string
+                              example: '2022-01-01T00:00:00Z'
+                            - type: 'null'
+                          events:
+                            type: array
+                            items:
+                              type: string
+                              enum:
+                              - message.received
+                              - message.delivered
+                          resourceIds:
+                            description: The unique identifiers of the phone numbers associated with the webhook.
+                            examples:
+                            - - PN1234
+                            example:
+                            - PN1234
+                            anyOf:
+                            - type: array
+                              items:
+                                pattern: ^PN(.*)$
+                                type: string
+                            - type: array
+                              items:
+                                const: '*'
+                                type: string
+                      - type: object
+                        required:
+                        - id
+                        - userId
+                        - orgId
+                        - label
+                        - status
+                        - url
+                        - key
+                        - createdAt
+                        - updatedAt
+                        - deletedAt
+                        - events
+                        - resourceIds
+                        properties:
+                          id:
+                            description: The webhook's ID
+                            examples:
+                            - WHabcd1234
+                            pattern: ^WH(.*)$
+                            type: string
+                            example: WHabcd1234
+                          userId:
+                            description: The unique identifier of the user that created the webhook.
+                            examples:
+                            - US123abc
+                            pattern: ^US(.*)$
+                            type: string
+                            example: US123abc
+                          orgId:
+                            description: The unique identifier of the organization the webhook belongs to
+                            examples:
+                            - OR1223abc
+                            pattern: ^OR(.*)$
+                            type: string
+                            example: OR1223abc
+                          label:
+                            anyOf:
+                            - description: The webhook's label.
+                              examples:
+                              - my webhook label
+                              type: string
+                              example: my webhook label
+                            - type: 'null'
+                          status:
+                            type: string
+                            enum:
+                            - enabled
+                            - disabled
+                            default: enabled
+                            description: The status of the webhook.
+                            examples:
+                            - enabled
+                            example: enabled
+                          url:
+                            format: uri
+                            description: The endpoint that receives events from the webhook.
+                            examples:
+                            - https://example.com/
+                            type: string
+                            example: https://example.com/
+                          key:
+                            description: Webhook key
+                            examples:
+                            - example-key
+                            type: string
+                            example: example-key
+                          createdAt:
+                            description: The date the webhook was created at, in ISO 8601 format.
+                            examples:
+                            - '2022-01-01T00:00:00Z'
+                            format: date-time
+                            type: string
+                            example: '2022-01-01T00:00:00Z'
+                          updatedAt:
+                            description: The date the webhook was updated at, in ISO 8601 format.
+                            examples:
+                            - '2022-01-01T00:00:00Z'
+                            format: date-time
+                            type: string
+                            example: '2022-01-01T00:00:00Z'
+                          deletedAt:
+                            anyOf:
+                            - description: The date the webhook was deleted at, in ISO 8601 format.
+                              examples:
+                              - '2022-01-01T00:00:00Z'
+                              format: date-time
+                              type: string
+                              example: '2022-01-01T00:00:00Z'
+                            - type: 'null'
+                          events:
+                            type: array
+                            items:
+                              type: string
+                              enum:
+                              - call.completed
+                              - call.ringing
+                              - call.recording.completed
+                          resourceIds:
+                            description: The unique identifiers of the phone numbers associated with the webhook.
+                            examples:
+                            - - PN1234
+                            example:
+                            - PN1234
+                            anyOf:
+                            - type: array
+                              items:
+                                pattern: ^PN(.*)$
+                                type: string
+                            - type: array
+                              items:
+                                const: '*'
+                                type: string
+                      - type: object
+                        required:
+                        - id
+                        - userId
+                        - orgId
+                        - label
+                        - status
+                        - url
+                        - key
+                        - createdAt
+                        - updatedAt
+                        - deletedAt
+                        - events
+                        - resourceIds
+                        properties:
+                          id:
+                            description: The webhook's ID
+                            examples:
+                            - WHabcd1234
+                            pattern: ^WH(.*)$
+                            type: string
+                            example: WHabcd1234
+                          userId:
+                            description: The unique identifier of the user that created the webhook.
+                            examples:
+                            - US123abc
+                            pattern: ^US(.*)$
+                            type: string
+                            example: US123abc
+                          orgId:
+                            description: The unique identifier of the organization the webhook belongs to
+                            examples:
+                            - OR1223abc
+                            pattern: ^OR(.*)$
+                            type: string
+                            example: OR1223abc
+                          label:
+                            anyOf:
+                            - description: The webhook's label.
+                              examples:
+                              - my webhook label
+                              type: string
+                              example: my webhook label
+                            - type: 'null'
+                          status:
+                            type: string
+                            enum:
+                            - enabled
+                            - disabled
+                            default: enabled
+                            description: The status of the webhook.
+                            examples:
+                            - enabled
+                            example: enabled
+                          url:
+                            format: uri
+                            description: The endpoint that receives events from the webhook.
+                            examples:
+                            - https://example.com/
+                            type: string
+                            example: https://example.com/
+                          key:
+                            description: Webhook key
+                            examples:
+                            - example-key
+                            type: string
+                            example: example-key
+                          createdAt:
+                            description: The date the webhook was created at, in ISO 8601 format.
+                            examples:
+                            - '2022-01-01T00:00:00Z'
+                            format: date-time
+                            type: string
+                            example: '2022-01-01T00:00:00Z'
+                          updatedAt:
+                            description: The date the webhook was updated at, in ISO 8601 format.
+                            examples:
+                            - '2022-01-01T00:00:00Z'
+                            format: date-time
+                            type: string
+                            example: '2022-01-01T00:00:00Z'
+                          deletedAt:
+                            anyOf:
+                            - description: The date the webhook was deleted at, in ISO 8601 format.
+                              examples:
+                              - '2022-01-01T00:00:00Z'
+                              format: date-time
+                              type: string
+                              example: '2022-01-01T00:00:00Z'
+                            - type: 'null'
+                          events:
+                            minItems: 1
+                            type: array
+                            items:
+                              type: string
+                              enum:
+                              - call.summary.completed
+                          resourceIds:
+                            description: The unique identifiers of the phone numbers associated with the webhook.
+                            examples:
+                            - - PN1234
+                            example:
+                            - PN1234
+                            anyOf:
+                            - type: array
+                              items:
+                                pattern: ^PN(.*)$
+                                type: string
+                            - type: array
+                              items:
+                                const: '*'
+                                type: string
+                      - type: object
+                        required:
+                        - id
+                        - userId
+                        - orgId
+                        - label
+                        - status
+                        - url
+                        - key
+                        - createdAt
+                        - updatedAt
+                        - deletedAt
+                        - events
+                        - resourceIds
+                        properties:
+                          id:
+                            description: The webhook's ID
+                            examples:
+                            - WHabcd1234
+                            pattern: ^WH(.*)$
+                            type: string
+                            example: WHabcd1234
+                          userId:
+                            description: The unique identifier of the user that created the webhook.
+                            examples:
+                            - US123abc
+                            pattern: ^US(.*)$
+                            type: string
+                            example: US123abc
+                          orgId:
+                            description: The unique identifier of the organization the webhook belongs to
+                            examples:
+                            - OR1223abc
+                            pattern: ^OR(.*)$
+                            type: string
+                            example: OR1223abc
+                          label:
+                            anyOf:
+                            - description: The webhook's label.
+                              examples:
+                              - my webhook label
+                              type: string
+                              example: my webhook label
+                            - type: 'null'
+                          status:
+                            type: string
+                            enum:
+                            - enabled
+                            - disabled
+                            default: enabled
+                            description: The status of the webhook.
+                            examples:
+                            - enabled
+                            example: enabled
+                          url:
+                            format: uri
+                            description: The endpoint that receives events from the webhook.
+                            examples:
+                            - https://example.com/
+                            type: string
+                            example: https://example.com/
+                          key:
+                            description: Webhook key
+                            examples:
+                            - example-key
+                            type: string
+                            example: example-key
+                          createdAt:
+                            description: The date the webhook was created at, in ISO 8601 format.
+                            examples:
+                            - '2022-01-01T00:00:00Z'
+                            format: date-time
+                            type: string
+                            example: '2022-01-01T00:00:00Z'
+                          updatedAt:
+                            description: The date the webhook was updated at, in ISO 8601 format.
+                            examples:
+                            - '2022-01-01T00:00:00Z'
+                            format: date-time
+                            type: string
+                            example: '2022-01-01T00:00:00Z'
+                          deletedAt:
+                            anyOf:
+                            - description: The date the webhook was deleted at, in ISO 8601 format.
+                              examples:
+                              - '2022-01-01T00:00:00Z'
+                              format: date-time
+                              type: string
+                              example: '2022-01-01T00:00:00Z'
+                            - type: 'null'
+                          events:
+                            minItems: 1
+                            type: array
+                            items:
+                              type: string
+                              enum:
+                              - call.transcript.completed
+                          resourceIds:
+                            description: The unique identifiers of the phone numbers associated with the webhook.
+                            examples:
+                            - - PN1234
+                            example:
+                            - PN1234
+                            anyOf:
+                            - type: array
+                              items:
+                                pattern: ^PN(.*)$
+                                type: string
+                            - type: array
+                              items:
+                                const: '*'
+                                type: string
+                      - type: object
+                        required:
+                        - id
+                        - userId
+                        - orgId
+                        - label
+                        - status
+                        - url
+                        - key
+                        - createdAt
+                        - updatedAt
+                        - deletedAt
+                        - events
+                        - resourceIds
+                        properties:
+                          id:
+                            description: The webhook's ID
+                            examples:
+                            - WHabcd1234
+                            pattern: ^WH(.*)$
+                            type: string
+                            example: WHabcd1234
+                          userId:
+                            description: The unique identifier of the user that created the webhook.
+                            examples:
+                            - US123abc
+                            pattern: ^US(.*)$
+                            type: string
+                            example: US123abc
+                          orgId:
+                            description: The unique identifier of the organization the webhook belongs to
+                            examples:
+                            - OR1223abc
+                            pattern: ^OR(.*)$
+                            type: string
+                            example: OR1223abc
+                          label:
+                            anyOf:
+                            - description: The webhook's label.
+                              examples:
+                              - my webhook label
+                              type: string
+                              example: my webhook label
+                            - type: 'null'
+                          status:
+                            type: string
+                            enum:
+                            - enabled
+                            - disabled
+                            default: enabled
+                            description: The status of the webhook.
+                            examples:
+                            - enabled
+                            example: enabled
+                          url:
+                            format: uri
+                            description: The endpoint that receives events from the webhook.
+                            examples:
+                            - https://example.com/
+                            type: string
+                            example: https://example.com/
+                          key:
+                            description: Webhook key
+                            examples:
+                            - example-key
+                            type: string
+                            example: example-key
+                          createdAt:
+                            description: The date the webhook was created at, in ISO 8601 format.
+                            examples:
+                            - '2022-01-01T00:00:00Z'
+                            format: date-time
+                            type: string
+                            example: '2022-01-01T00:00:00Z'
+                          updatedAt:
+                            description: The date the webhook was updated at, in ISO 8601 format.
+                            examples:
+                            - '2022-01-01T00:00:00Z'
+                            format: date-time
+                            type: string
+                            example: '2022-01-01T00:00:00Z'
+                          deletedAt:
+                            anyOf:
+                            - description: The date the webhook was deleted at, in ISO 8601 format.
+                              examples:
+                              - '2022-01-01T00:00:00Z'
+                              format: date-time
+                              type: string
+                              example: '2022-01-01T00:00:00Z'
+                            - type: 'null'
+                          events:
+                            minItems: 1
+                            type: array
+                            items:
+                              type: string
+                              enum:
+                              - contact.updated
+                              - contact.deleted
+                          resourceIds:
+                            minItems: 1
+                            maxItems: 1
+                            type: array
+                            items:
+                              const: '*'
+                              type: string
+        '400':
+          description: Invalid Version
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                - description
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0305400'
+                    type: string
+                  status:
+                    const: 400
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Invalid Version
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+                  description:
+                    const: Invalid Version
+                    type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0300401'
+                    type: string
+                  status:
+                    const: 401
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Unauthorized
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0300403'
+                    type: string
+                  status:
+                    const: 403
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Forbidden
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0300404'
+                    type: string
+                  status:
+                    const: 404
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Not Found
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+        '500':
+          description: Unknown Error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0301500'
+                    type: string
+                  status:
+                    const: 500
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Unknown
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+  /v1/webhooks/{id}:
+    get:
+      tags:
+      - Webhooks
+      summary: Get a webhook by ID
+      description: Get a webhook by its unique identifier.
+      operationId: getWebhookById_v1
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: The unique identifier of a webhook
+          examples:
+          - WH12345
+          pattern: ^WH(.*)$
+          type: string
+        example: WH12345
+      security:
+      - apiKey: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - data
+                properties:
+                  data:
+                    anyOf:
+                    - type: object
+                      required:
+                      - id
+                      - userId
+                      - orgId
+                      - label
+                      - status
+                      - url
+                      - key
+                      - createdAt
+                      - updatedAt
+                      - deletedAt
+                      - events
+                      - resourceIds
+                      properties:
+                        id:
+                          description: The webhook's ID
+                          examples:
+                          - WHabcd1234
+                          pattern: ^WH(.*)$
+                          type: string
+                          example: WHabcd1234
+                        userId:
+                          description: The unique identifier of the user that created the webhook.
+                          examples:
+                          - US123abc
+                          pattern: ^US(.*)$
+                          type: string
+                          example: US123abc
+                        orgId:
+                          description: The unique identifier of the organization the webhook belongs to
+                          examples:
+                          - OR1223abc
+                          pattern: ^OR(.*)$
+                          type: string
+                          example: OR1223abc
+                        label:
+                          anyOf:
+                          - description: The webhook's label.
+                            examples:
+                            - my webhook label
+                            type: string
+                            example: my webhook label
+                          - type: 'null'
+                        status:
+                          type: string
+                          enum:
+                          - enabled
+                          - disabled
+                          default: enabled
+                          description: The status of the webhook.
+                          examples:
+                          - enabled
+                          example: enabled
+                        url:
+                          format: uri
+                          description: The endpoint that receives events from the webhook.
+                          examples:
+                          - https://example.com/
+                          type: string
+                          example: https://example.com/
+                        key:
+                          description: Webhook key
+                          examples:
+                          - example-key
+                          type: string
+                          example: example-key
+                        createdAt:
+                          description: The date the webhook was created at, in ISO 8601 format.
+                          examples:
+                          - '2022-01-01T00:00:00Z'
+                          format: date-time
+                          type: string
+                          example: '2022-01-01T00:00:00Z'
+                        updatedAt:
+                          description: The date the webhook was updated at, in ISO 8601 format.
+                          examples:
+                          - '2022-01-01T00:00:00Z'
+                          format: date-time
+                          type: string
+                          example: '2022-01-01T00:00:00Z'
+                        deletedAt:
+                          anyOf:
+                          - description: The date the webhook was deleted at, in ISO 8601 format.
+                            examples:
+                            - '2022-01-01T00:00:00Z'
+                            format: date-time
+                            type: string
+                            example: '2022-01-01T00:00:00Z'
+                          - type: 'null'
+                        events:
+                          type: array
+                          items:
+                            type: string
+                            enum:
+                            - message.received
+                            - message.delivered
+                        resourceIds:
+                          description: The unique identifiers of the phone numbers associated with the webhook.
+                          examples:
+                          - - PN1234
+                          example:
+                          - PN1234
+                          anyOf:
+                          - type: array
+                            items:
+                              pattern: ^PN(.*)$
+                              type: string
+                          - type: array
+                            items:
+                              const: '*'
+                              type: string
+                    - type: object
+                      required:
+                      - id
+                      - userId
+                      - orgId
+                      - label
+                      - status
+                      - url
+                      - key
+                      - createdAt
+                      - updatedAt
+                      - deletedAt
+                      - events
+                      - resourceIds
+                      properties:
+                        id:
+                          description: The webhook's ID
+                          examples:
+                          - WHabcd1234
+                          pattern: ^WH(.*)$
+                          type: string
+                          example: WHabcd1234
+                        userId:
+                          description: The unique identifier of the user that created the webhook.
+                          examples:
+                          - US123abc
+                          pattern: ^US(.*)$
+                          type: string
+                          example: US123abc
+                        orgId:
+                          description: The unique identifier of the organization the webhook belongs to
+                          examples:
+                          - OR1223abc
+                          pattern: ^OR(.*)$
+                          type: string
+                          example: OR1223abc
+                        label:
+                          anyOf:
+                          - description: The webhook's label.
+                            examples:
+                            - my webhook label
+                            type: string
+                            example: my webhook label
+                          - type: 'null'
+                        status:
+                          type: string
+                          enum:
+                          - enabled
+                          - disabled
+                          default: enabled
+                          description: The status of the webhook.
+                          examples:
+                          - enabled
+                          example: enabled
+                        url:
+                          format: uri
+                          description: The endpoint that receives events from the webhook.
+                          examples:
+                          - https://example.com/
+                          type: string
+                          example: https://example.com/
+                        key:
+                          description: Webhook key
+                          examples:
+                          - example-key
+                          type: string
+                          example: example-key
+                        createdAt:
+                          description: The date the webhook was created at, in ISO 8601 format.
+                          examples:
+                          - '2022-01-01T00:00:00Z'
+                          format: date-time
+                          type: string
+                          example: '2022-01-01T00:00:00Z'
+                        updatedAt:
+                          description: The date the webhook was updated at, in ISO 8601 format.
+                          examples:
+                          - '2022-01-01T00:00:00Z'
+                          format: date-time
+                          type: string
+                          example: '2022-01-01T00:00:00Z'
+                        deletedAt:
+                          anyOf:
+                          - description: The date the webhook was deleted at, in ISO 8601 format.
+                            examples:
+                            - '2022-01-01T00:00:00Z'
+                            format: date-time
+                            type: string
+                            example: '2022-01-01T00:00:00Z'
+                          - type: 'null'
+                        events:
+                          type: array
+                          items:
+                            type: string
+                            enum:
+                            - call.completed
+                            - call.ringing
+                            - call.recording.completed
+                        resourceIds:
+                          description: The unique identifiers of the phone numbers associated with the webhook.
+                          examples:
+                          - - PN1234
+                          example:
+                          - PN1234
+                          anyOf:
+                          - type: array
+                            items:
+                              pattern: ^PN(.*)$
+                              type: string
+                          - type: array
+                            items:
+                              const: '*'
+                              type: string
+                    - type: object
+                      required:
+                      - id
+                      - userId
+                      - orgId
+                      - label
+                      - status
+                      - url
+                      - key
+                      - createdAt
+                      - updatedAt
+                      - deletedAt
+                      - events
+                      - resourceIds
+                      properties:
+                        id:
+                          description: The webhook's ID
+                          examples:
+                          - WHabcd1234
+                          pattern: ^WH(.*)$
+                          type: string
+                          example: WHabcd1234
+                        userId:
+                          description: The unique identifier of the user that created the webhook.
+                          examples:
+                          - US123abc
+                          pattern: ^US(.*)$
+                          type: string
+                          example: US123abc
+                        orgId:
+                          description: The unique identifier of the organization the webhook belongs to
+                          examples:
+                          - OR1223abc
+                          pattern: ^OR(.*)$
+                          type: string
+                          example: OR1223abc
+                        label:
+                          anyOf:
+                          - description: The webhook's label.
+                            examples:
+                            - my webhook label
+                            type: string
+                            example: my webhook label
+                          - type: 'null'
+                        status:
+                          type: string
+                          enum:
+                          - enabled
+                          - disabled
+                          default: enabled
+                          description: The status of the webhook.
+                          examples:
+                          - enabled
+                          example: enabled
+                        url:
+                          format: uri
+                          description: The endpoint that receives events from the webhook.
+                          examples:
+                          - https://example.com/
+                          type: string
+                          example: https://example.com/
+                        key:
+                          description: Webhook key
+                          examples:
+                          - example-key
+                          type: string
+                          example: example-key
+                        createdAt:
+                          description: The date the webhook was created at, in ISO 8601 format.
+                          examples:
+                          - '2022-01-01T00:00:00Z'
+                          format: date-time
+                          type: string
+                          example: '2022-01-01T00:00:00Z'
+                        updatedAt:
+                          description: The date the webhook was updated at, in ISO 8601 format.
+                          examples:
+                          - '2022-01-01T00:00:00Z'
+                          format: date-time
+                          type: string
+                          example: '2022-01-01T00:00:00Z'
+                        deletedAt:
+                          anyOf:
+                          - description: The date the webhook was deleted at, in ISO 8601 format.
+                            examples:
+                            - '2022-01-01T00:00:00Z'
+                            format: date-time
+                            type: string
+                            example: '2022-01-01T00:00:00Z'
+                          - type: 'null'
+                        events:
+                          minItems: 1
+                          type: array
+                          items:
+                            type: string
+                            enum:
+                            - call.summary.completed
+                        resourceIds:
+                          description: The unique identifiers of the phone numbers associated with the webhook.
+                          examples:
+                          - - PN1234
+                          example:
+                          - PN1234
+                          anyOf:
+                          - type: array
+                            items:
+                              pattern: ^PN(.*)$
+                              type: string
+                          - type: array
+                            items:
+                              const: '*'
+                              type: string
+                    - type: object
+                      required:
+                      - id
+                      - userId
+                      - orgId
+                      - label
+                      - status
+                      - url
+                      - key
+                      - createdAt
+                      - updatedAt
+                      - deletedAt
+                      - events
+                      - resourceIds
+                      properties:
+                        id:
+                          description: The webhook's ID
+                          examples:
+                          - WHabcd1234
+                          pattern: ^WH(.*)$
+                          type: string
+                          example: WHabcd1234
+                        userId:
+                          description: The unique identifier of the user that created the webhook.
+                          examples:
+                          - US123abc
+                          pattern: ^US(.*)$
+                          type: string
+                          example: US123abc
+                        orgId:
+                          description: The unique identifier of the organization the webhook belongs to
+                          examples:
+                          - OR1223abc
+                          pattern: ^OR(.*)$
+                          type: string
+                          example: OR1223abc
+                        label:
+                          anyOf:
+                          - description: The webhook's label.
+                            examples:
+                            - my webhook label
+                            type: string
+                            example: my webhook label
+                          - type: 'null'
+                        status:
+                          type: string
+                          enum:
+                          - enabled
+                          - disabled
+                          default: enabled
+                          description: The status of the webhook.
+                          examples:
+                          - enabled
+                          example: enabled
+                        url:
+                          format: uri
+                          description: The endpoint that receives events from the webhook.
+                          examples:
+                          - https://example.com/
+                          type: string
+                          example: https://example.com/
+                        key:
+                          description: Webhook key
+                          examples:
+                          - example-key
+                          type: string
+                          example: example-key
+                        createdAt:
+                          description: The date the webhook was created at, in ISO 8601 format.
+                          examples:
+                          - '2022-01-01T00:00:00Z'
+                          format: date-time
+                          type: string
+                          example: '2022-01-01T00:00:00Z'
+                        updatedAt:
+                          description: The date the webhook was updated at, in ISO 8601 format.
+                          examples:
+                          - '2022-01-01T00:00:00Z'
+                          format: date-time
+                          type: string
+                          example: '2022-01-01T00:00:00Z'
+                        deletedAt:
+                          anyOf:
+                          - description: The date the webhook was deleted at, in ISO 8601 format.
+                            examples:
+                            - '2022-01-01T00:00:00Z'
+                            format: date-time
+                            type: string
+                            example: '2022-01-01T00:00:00Z'
+                          - type: 'null'
+                        events:
+                          minItems: 1
+                          type: array
+                          items:
+                            type: string
+                            enum:
+                            - call.transcript.completed
+                        resourceIds:
+                          description: The unique identifiers of the phone numbers associated with the webhook.
+                          examples:
+                          - - PN1234
+                          example:
+                          - PN1234
+                          anyOf:
+                          - type: array
+                            items:
+                              pattern: ^PN(.*)$
+                              type: string
+                          - type: array
+                            items:
+                              const: '*'
+                              type: string
+                    - type: object
+                      required:
+                      - id
+                      - userId
+                      - orgId
+                      - label
+                      - status
+                      - url
+                      - key
+                      - createdAt
+                      - updatedAt
+                      - deletedAt
+                      - events
+                      - resourceIds
+                      properties:
+                        id:
+                          description: The webhook's ID
+                          examples:
+                          - WHabcd1234
+                          pattern: ^WH(.*)$
+                          type: string
+                          example: WHabcd1234
+                        userId:
+                          description: The unique identifier of the user that created the webhook.
+                          examples:
+                          - US123abc
+                          pattern: ^US(.*)$
+                          type: string
+                          example: US123abc
+                        orgId:
+                          description: The unique identifier of the organization the webhook belongs to
+                          examples:
+                          - OR1223abc
+                          pattern: ^OR(.*)$
+                          type: string
+                          example: OR1223abc
+                        label:
+                          anyOf:
+                          - description: The webhook's label.
+                            examples:
+                            - my webhook label
+                            type: string
+                            example: my webhook label
+                          - type: 'null'
+                        status:
+                          type: string
+                          enum:
+                          - enabled
+                          - disabled
+                          default: enabled
+                          description: The status of the webhook.
+                          examples:
+                          - enabled
+                          example: enabled
+                        url:
+                          format: uri
+                          description: The endpoint that receives events from the webhook.
+                          examples:
+                          - https://example.com/
+                          type: string
+                          example: https://example.com/
+                        key:
+                          description: Webhook key
+                          examples:
+                          - example-key
+                          type: string
+                          example: example-key
+                        createdAt:
+                          description: The date the webhook was created at, in ISO 8601 format.
+                          examples:
+                          - '2022-01-01T00:00:00Z'
+                          format: date-time
+                          type: string
+                          example: '2022-01-01T00:00:00Z'
+                        updatedAt:
+                          description: The date the webhook was updated at, in ISO 8601 format.
+                          examples:
+                          - '2022-01-01T00:00:00Z'
+                          format: date-time
+                          type: string
+                          example: '2022-01-01T00:00:00Z'
+                        deletedAt:
+                          anyOf:
+                          - description: The date the webhook was deleted at, in ISO 8601 format.
+                            examples:
+                            - '2022-01-01T00:00:00Z'
+                            format: date-time
+                            type: string
+                            example: '2022-01-01T00:00:00Z'
+                          - type: 'null'
+                        events:
+                          minItems: 1
+                          type: array
+                          items:
+                            type: string
+                            enum:
+                            - contact.updated
+                            - contact.deleted
+                        resourceIds:
+                          minItems: 1
+                          maxItems: 1
+                          type: array
+                          items:
+                            const: '*'
+                            type: string
+        '400':
+          description: Invalid Version
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                - description
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0305400'
+                    type: string
+                  status:
+                    const: 400
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Invalid Version
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+                  description:
+                    const: Invalid Version
+                    type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0300401'
+                    type: string
+                  status:
+                    const: 401
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Unauthorized
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0300403'
+                    type: string
+                  status:
+                    const: 403
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Forbidden
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0300404'
+                    type: string
+                  status:
+                    const: 404
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Not Found
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+        '500':
+          description: Unknown Error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0301500'
+                    type: string
+                  status:
+                    const: 500
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Unknown
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+    delete:
+      tags:
+      - Webhooks
+      summary: Delete a webhook by ID
+      description: Delete a webhook by its unique identifier.
+      operationId: deleteWebhookById_v1
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          description: The unique identifier of a webhook
+          examples:
+          - WH12345
+          pattern: ^WH(.*)$
+          type: string
+        example: WH12345
+      security:
+      - apiKey: []
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Invalid Version
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                - description
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0305400'
+                    type: string
+                  status:
+                    const: 400
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Invalid Version
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+                  description:
+                    const: Invalid Version
+                    type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0300401'
+                    type: string
+                  status:
+                    const: 401
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Unauthorized
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0300403'
+                    type: string
+                  status:
+                    const: 403
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Forbidden
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0300404'
+                    type: string
+                  status:
+                    const: 404
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Not Found
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+        '500':
+          description: Unknown Error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0301500'
+                    type: string
+                  status:
+                    const: 500
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Unknown
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+  /v1/webhooks/messages:
+    post:
+      tags:
+      - Webhooks
+      summary: Create a new webhook for messages
+      description: Creates a new webhook that triggers on events from messages.
+      operationId: createMessageWebhook_v1
+      parameters: []
+      security:
+      - apiKey: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - events
+              - url
+              properties:
+                events:
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - message.received
+                    - message.delivered
+                label:
+                  description: Webhook's label
+                  examples:
+                  - my webhook label
+                  type: string
+                  example: my webhook label
+                resourceIds:
+                  description: The unique identifiers of the phone numbers associated with the webhook.
+                  examples:
+                  - - PN1234
+                  example:
+                  - PN1234
+                  anyOf:
+                  - type: array
+                    items:
+                      pattern: ^PN(.*)$
+                      type: string
+                  - type: array
+                    items:
+                      const: '*'
+                      type: string
+                status:
+                  type: string
+                  enum:
+                  - enabled
+                  - disabled
+                  default: enabled
+                  description: The status of the webhook.
+                  examples:
+                  - enabled
+                  example: enabled
+                url:
+                  format: uri
+                  description: The endpoint that receives events from the webhook.
+                  examples:
+                  - https://example.com
+                  type: string
+                  example: https://example.com
+                userId:
+                  description: The unique identifier of the user that creates the webhook. If not provided, default to workspace owner.
+                  examples:
+                  - US123abc
+                  pattern: ^US(.*)$
+                  type: string
+                  example: US123abc
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - data
+                properties:
+                  data:
+                    type: object
+                    required:
+                    - id
+                    - userId
+                    - orgId
+                    - label
+                    - status
+                    - url
+                    - key
+                    - createdAt
+                    - updatedAt
+                    - deletedAt
+                    - events
+                    - resourceIds
+                    properties:
+                      id:
+                        description: The webhook's ID
+                        examples:
+                        - WHabcd1234
+                        pattern: ^WH(.*)$
+                        type: string
+                        example: WHabcd1234
+                      userId:
+                        description: The unique identifier of the user that created the webhook.
+                        examples:
+                        - US123abc
+                        pattern: ^US(.*)$
+                        type: string
+                        example: US123abc
+                      orgId:
+                        description: The unique identifier of the organization the webhook belongs to
+                        examples:
+                        - OR1223abc
+                        pattern: ^OR(.*)$
+                        type: string
+                        example: OR1223abc
+                      label:
+                        anyOf:
+                        - description: The webhook's label.
+                          examples:
+                          - my webhook label
+                          type: string
+                          example: my webhook label
+                        - type: 'null'
+                      status:
+                        type: string
+                        enum:
+                        - enabled
+                        - disabled
+                        default: enabled
+                        description: The status of the webhook.
+                        examples:
+                        - enabled
+                        example: enabled
+                      url:
+                        format: uri
+                        description: The endpoint that receives events from the webhook.
+                        examples:
+                        - https://example.com/
+                        type: string
+                        example: https://example.com/
+                      key:
+                        description: Webhook key
+                        examples:
+                        - example-key
+                        type: string
+                        example: example-key
+                      createdAt:
+                        description: The date the webhook was created at, in ISO 8601 format.
+                        examples:
+                        - '2022-01-01T00:00:00Z'
+                        format: date-time
+                        type: string
+                        example: '2022-01-01T00:00:00Z'
+                      updatedAt:
+                        description: The date the webhook was updated at, in ISO 8601 format.
+                        examples:
+                        - '2022-01-01T00:00:00Z'
+                        format: date-time
+                        type: string
+                        example: '2022-01-01T00:00:00Z'
+                      deletedAt:
+                        anyOf:
+                        - description: The date the webhook was deleted at, in ISO 8601 format.
+                          examples:
+                          - '2022-01-01T00:00:00Z'
+                          format: date-time
+                          type: string
+                          example: '2022-01-01T00:00:00Z'
+                        - type: 'null'
+                      events:
+                        type: array
+                        items:
+                          type: string
+                          enum:
+                          - message.received
+                          - message.delivered
+                      resourceIds:
+                        description: The unique identifiers of the phone numbers associated with the webhook.
+                        examples:
+                        - - PN1234
+                        example:
+                        - PN1234
+                        anyOf:
+                        - type: array
+                          items:
+                            pattern: ^PN(.*)$
+                            type: string
+                        - type: array
+                          items:
+                            const: '*'
+                            type: string
+        '400':
+          description: Invalid Version
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                - description
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0305400'
+                    type: string
+                  status:
+                    const: 400
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Invalid Version
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+                  description:
+                    const: Invalid Version
+                    type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0300401'
+                    type: string
+                  status:
+                    const: 401
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Unauthorized
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0300403'
+                    type: string
+                  status:
+                    const: 403
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Forbidden
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0300404'
+                    type: string
+                  status:
+                    const: 404
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Not Found
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+        '500':
+          description: Unknown Error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0301500'
+                    type: string
+                  status:
+                    const: 500
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Unknown
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+  /v1/webhooks/calls:
+    post:
+      tags:
+      - Webhooks
+      summary: Create a new webhook for calls
+      description: Creates a new webhook that triggers on events from calls.
+      operationId: createCallWebhook_v1
+      parameters: []
+      security:
+      - apiKey: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - url
+              - events
+              properties:
+                url:
+                  format: uri
+                  description: The endpoint that receives events from the webhook.
+                  examples:
+                  - https://example.com/
+                  type: string
+                  example: https://example.com/
+                events:
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - call.completed
+                    - call.ringing
+                    - call.recording.completed
+                resourceIds:
+                  description: The unique identifiers of the phone numbers associated with the webhook.
+                  examples:
+                  - - PN1234
+                  example:
+                  - PN1234
+                  anyOf:
+                  - type: array
+                    items:
+                      pattern: ^PN(.*)$
+                      type: string
+                  - type: array
+                    items:
+                      const: '*'
+                      type: string
+                userId:
+                  description: The unique identifier of the user that creates the webhook. If not provided, default to workspace owner.
+                  examples:
+                  - US123abc
+                  pattern: ^US(.*)$
+                  type: string
+                  example: US123abc
+                label:
+                  description: Webhook's label
+                  examples:
+                  - my webhook label
+                  type: string
+                  example: my webhook label
+                status:
+                  type: string
+                  enum:
+                  - enabled
+                  - disabled
+                  default: enabled
+                  description: The status of the webhook.
+                  examples:
+                  - enabled
+                  example: enabled
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - data
+                properties:
+                  data:
+                    type: object
+                    required:
+                    - id
+                    - userId
+                    - orgId
+                    - label
+                    - status
+                    - url
+                    - key
+                    - createdAt
+                    - updatedAt
+                    - deletedAt
+                    - events
+                    - resourceIds
+                    properties:
+                      id:
+                        description: The webhook's ID
+                        examples:
+                        - WHabcd1234
+                        pattern: ^WH(.*)$
+                        type: string
+                        example: WHabcd1234
+                      userId:
+                        description: The unique identifier of the user that created the webhook.
+                        examples:
+                        - US123abc
+                        pattern: ^US(.*)$
+                        type: string
+                        example: US123abc
+                      orgId:
+                        description: The unique identifier of the organization the webhook belongs to
+                        examples:
+                        - OR1223abc
+                        pattern: ^OR(.*)$
+                        type: string
+                        example: OR1223abc
+                      label:
+                        anyOf:
+                        - description: The webhook's label.
+                          examples:
+                          - my webhook label
+                          type: string
+                          example: my webhook label
+                        - type: 'null'
+                      status:
+                        type: string
+                        enum:
+                        - enabled
+                        - disabled
+                        default: enabled
+                        description: The status of the webhook.
+                        examples:
+                        - enabled
+                        example: enabled
+                      url:
+                        format: uri
+                        description: The endpoint that receives events from the webhook.
+                        examples:
+                        - https://example.com/
+                        type: string
+                        example: https://example.com/
+                      key:
+                        description: Webhook key
+                        examples:
+                        - example-key
+                        type: string
+                        example: example-key
+                      createdAt:
+                        description: The date the webhook was created at, in ISO 8601 format.
+                        examples:
+                        - '2022-01-01T00:00:00Z'
+                        format: date-time
+                        type: string
+                        example: '2022-01-01T00:00:00Z'
+                      updatedAt:
+                        description: The date the webhook was updated at, in ISO 8601 format.
+                        examples:
+                        - '2022-01-01T00:00:00Z'
+                        format: date-time
+                        type: string
+                        example: '2022-01-01T00:00:00Z'
+                      deletedAt:
+                        anyOf:
+                        - description: The date the webhook was deleted at, in ISO 8601 format.
+                          examples:
+                          - '2022-01-01T00:00:00Z'
+                          format: date-time
+                          type: string
+                          example: '2022-01-01T00:00:00Z'
+                        - type: 'null'
+                      events:
+                        type: array
+                        items:
+                          type: string
+                          enum:
+                          - call.completed
+                          - call.ringing
+                          - call.recording.completed
+                      resourceIds:
+                        description: The unique identifiers of the phone numbers associated with the webhook.
+                        examples:
+                        - - PN1234
+                        example:
+                        - PN1234
+                        anyOf:
+                        - type: array
+                          items:
+                            pattern: ^PN(.*)$
+                            type: string
+                        - type: array
+                          items:
+                            const: '*'
+                            type: string
+        '400':
+          description: Invalid Version
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                - description
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0305400'
+                    type: string
+                  status:
+                    const: 400
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Invalid Version
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+                  description:
+                    const: Invalid Version
+                    type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0300401'
+                    type: string
+                  status:
+                    const: 401
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Unauthorized
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0300403'
+                    type: string
+                  status:
+                    const: 403
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Forbidden
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0300404'
+                    type: string
+                  status:
+                    const: 404
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Not Found
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+        '500':
+          description: Unknown Error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0301500'
+                    type: string
+                  status:
+                    const: 500
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Unknown
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+  /v1/webhooks/call-summaries:
+    post:
+      tags:
+      - Webhooks
+      summary: Create a new webhook for call summaries
+      description: Creates a new webhook that triggers on events from call summaries.
+      operationId: createCallSummaryWebhook_v1
+      parameters: []
+      security:
+      - apiKey: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - events
+              - url
+              properties:
+                events:
+                  minItems: 1
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - call.summary.completed
+                label:
+                  description: Webhook's label
+                  examples:
+                  - my webhook label
+                  type: string
+                  example: my webhook label
+                resourceIds:
+                  description: The unique identifiers of the phone numbers associated with the webhook.
+                  examples:
+                  - - PN1234
+                  example:
+                  - PN1234
+                  anyOf:
+                  - type: array
+                    items:
+                      pattern: ^PN(.*)$
+                      type: string
+                  - type: array
+                    items:
+                      const: '*'
+                      type: string
+                status:
+                  type: string
+                  enum:
+                  - enabled
+                  - disabled
+                  default: enabled
+                  description: The status of the webhook.
+                  examples:
+                  - enabled
+                  example: enabled
+                url:
+                  format: uri
+                  description: The endpoint that receives events from the webhook.
+                  examples:
+                  - https://example.com
+                  type: string
+                  example: https://example.com
+                userId:
+                  description: The unique identifier of the user that creates the webhook. If not provided, default to workspace owner.
+                  examples:
+                  - US123abc
+                  pattern: ^US(.*)$
+                  type: string
+                  example: US123abc
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - data
+                properties:
+                  data:
+                    type: object
+                    required:
+                    - id
+                    - userId
+                    - orgId
+                    - label
+                    - status
+                    - url
+                    - key
+                    - createdAt
+                    - updatedAt
+                    - deletedAt
+                    - events
+                    - resourceIds
+                    properties:
+                      id:
+                        description: The webhook's ID
+                        examples:
+                        - WHabcd1234
+                        pattern: ^WH(.*)$
+                        type: string
+                        example: WHabcd1234
+                      userId:
+                        description: The unique identifier of the user that created the webhook.
+                        examples:
+                        - US123abc
+                        pattern: ^US(.*)$
+                        type: string
+                        example: US123abc
+                      orgId:
+                        description: The unique identifier of the organization the webhook belongs to
+                        examples:
+                        - OR1223abc
+                        pattern: ^OR(.*)$
+                        type: string
+                        example: OR1223abc
+                      label:
+                        anyOf:
+                        - description: The webhook's label.
+                          examples:
+                          - my webhook label
+                          type: string
+                          example: my webhook label
+                        - type: 'null'
+                      status:
+                        type: string
+                        enum:
+                        - enabled
+                        - disabled
+                        default: enabled
+                        description: The status of the webhook.
+                        examples:
+                        - enabled
+                        example: enabled
+                      url:
+                        format: uri
+                        description: The endpoint that receives events from the webhook.
+                        examples:
+                        - https://example.com/
+                        type: string
+                        example: https://example.com/
+                      key:
+                        description: Webhook key
+                        examples:
+                        - example-key
+                        type: string
+                        example: example-key
+                      createdAt:
+                        description: The date the webhook was created at, in ISO 8601 format.
+                        examples:
+                        - '2022-01-01T00:00:00Z'
+                        format: date-time
+                        type: string
+                        example: '2022-01-01T00:00:00Z'
+                      updatedAt:
+                        description: The date the webhook was updated at, in ISO 8601 format.
+                        examples:
+                        - '2022-01-01T00:00:00Z'
+                        format: date-time
+                        type: string
+                        example: '2022-01-01T00:00:00Z'
+                      deletedAt:
+                        anyOf:
+                        - description: The date the webhook was deleted at, in ISO 8601 format.
+                          examples:
+                          - '2022-01-01T00:00:00Z'
+                          format: date-time
+                          type: string
+                          example: '2022-01-01T00:00:00Z'
+                        - type: 'null'
+                      events:
+                        minItems: 1
+                        type: array
+                        items:
+                          type: string
+                          enum:
+                          - call.summary.completed
+                      resourceIds:
+                        description: The unique identifiers of the phone numbers associated with the webhook.
+                        examples:
+                        - - PN1234
+                        example:
+                        - PN1234
+                        anyOf:
+                        - type: array
+                          items:
+                            pattern: ^PN(.*)$
+                            type: string
+                        - type: array
+                          items:
+                            const: '*'
+                            type: string
+        '400':
+          description: Invalid Version
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                - description
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0305400'
+                    type: string
+                  status:
+                    const: 400
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Invalid Version
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+                  description:
+                    const: Invalid Version
+                    type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0300401'
+                    type: string
+                  status:
+                    const: 401
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Unauthorized
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0300403'
+                    type: string
+                  status:
+                    const: 403
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Forbidden
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0300404'
+                    type: string
+                  status:
+                    const: 404
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Not Found
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+        '500':
+          description: Unknown Error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0301500'
+                    type: string
+                  status:
+                    const: 500
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Unknown
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+  /v1/webhooks/call-transcripts:
+    post:
+      tags:
+      - Webhooks
+      summary: Create a new webhook for call transcripts
+      description: Creates a new webhook that triggers on events from call transcripts.
+      operationId: createCallTranscriptWebhook_v1
+      parameters: []
+      security:
+      - apiKey: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - events
+              - url
+              properties:
+                events:
+                  minItems: 1
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - call.transcript.completed
+                label:
+                  description: The webhook's label.
+                  examples:
+                  - my webhook label
+                  type: string
+                  example: my webhook label
+                resourceIds:
+                  description: The unique identifiers of the phone numbers associated with the webhook.
+                  examples:
+                  - PN1234
+                  example: PN1234
+                  anyOf:
+                  - type: array
+                    items:
+                      pattern: ^PN(.*)$
+                      type: string
+                  - type: array
+                    items:
+                      const: '*'
+                      type: string
+                status:
+                  type: string
+                  enum:
+                  - enabled
+                  - disabled
+                  description: The status of the webhook.
+                  examples:
+                  - enabled
+                  example: enabled
+                url:
+                  format: uri
+                  description: The endpoint that receives events from the webhook.
+                  examples:
+                  - https://example.com
+                  type: string
+                  example: https://example.com
+                userId:
+                  description: The ID of the user that creates the webhook. If not provided, default to workspace owner.
+                  examples:
+                  - US123abc
+                  pattern: ^US(.*)$
+                  type: string
+                  example: US123abc
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - data
+                properties:
+                  data:
+                    type: object
+                    required:
+                    - id
+                    - userId
+                    - orgId
+                    - label
+                    - status
+                    - url
+                    - key
+                    - createdAt
+                    - updatedAt
+                    - deletedAt
+                    - events
+                    - resourceIds
+                    properties:
+                      id:
+                        description: The webhook's ID
+                        examples:
+                        - WHabcd1234
+                        pattern: ^WH(.*)$
+                        type: string
+                        example: WHabcd1234
+                      userId:
+                        description: The unique identifier of the user that created the webhook.
+                        examples:
+                        - US123abc
+                        pattern: ^US(.*)$
+                        type: string
+                        example: US123abc
+                      orgId:
+                        description: The unique identifier of the organization the webhook belongs to
+                        examples:
+                        - OR1223abc
+                        pattern: ^OR(.*)$
+                        type: string
+                        example: OR1223abc
+                      label:
+                        anyOf:
+                        - description: The webhook's label.
+                          examples:
+                          - my webhook label
+                          type: string
+                          example: my webhook label
+                        - type: 'null'
+                      status:
+                        type: string
+                        enum:
+                        - enabled
+                        - disabled
+                        default: enabled
+                        description: The status of the webhook.
+                        examples:
+                        - enabled
+                        example: enabled
+                      url:
+                        format: uri
+                        description: The endpoint that receives events from the webhook.
+                        examples:
+                        - https://example.com/
+                        type: string
+                        example: https://example.com/
+                      key:
+                        description: Webhook key
+                        examples:
+                        - example-key
+                        type: string
+                        example: example-key
+                      createdAt:
+                        description: The date the webhook was created at, in ISO 8601 format.
+                        examples:
+                        - '2022-01-01T00:00:00Z'
+                        format: date-time
+                        type: string
+                        example: '2022-01-01T00:00:00Z'
+                      updatedAt:
+                        description: The date the webhook was updated at, in ISO 8601 format.
+                        examples:
+                        - '2022-01-01T00:00:00Z'
+                        format: date-time
+                        type: string
+                        example: '2022-01-01T00:00:00Z'
+                      deletedAt:
+                        anyOf:
+                        - description: The date the webhook was deleted at, in ISO 8601 format.
+                          examples:
+                          - '2022-01-01T00:00:00Z'
+                          format: date-time
+                          type: string
+                          example: '2022-01-01T00:00:00Z'
+                        - type: 'null'
+                      events:
+                        minItems: 1
+                        type: array
+                        items:
+                          type: string
+                          enum:
+                          - call.transcript.completed
+                      resourceIds:
+                        description: The unique identifiers of the phone numbers associated with the webhook.
+                        examples:
+                        - - PN1234
+                        example:
+                        - PN1234
+                        anyOf:
+                        - type: array
+                          items:
+                            pattern: ^PN(.*)$
+                            type: string
+                        - type: array
+                          items:
+                            const: '*'
+                            type: string
+        '400':
+          description: Invalid Version
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                - description
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0305400'
+                    type: string
+                  status:
+                    const: 400
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Invalid Version
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+                  description:
+                    const: Invalid Version
+                    type: string
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0300401'
+                    type: string
+                  status:
+                    const: 401
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Unauthorized
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0300403'
+                    type: string
+                  status:
+                    const: 403
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Forbidden
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0300404'
+                    type: string
+                  status:
+                    const: 404
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Not Found
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+        '500':
+          description: Unknown Error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - message
+                - code
+                - status
+                - docs
+                - title
+                properties:
+                  message:
+                    type: string
+                  code:
+                    const: '0301500'
+                    type: string
+                  status:
+                    const: 500
+                    type: number
+                  docs:
+                    const: https://quo.com/docs
+                    type: string
+                  title:
+                    const: Unknown
+                    type: string
+                  trace:
+                    type: string
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - path
+                      - message
+                      - schema
+                      properties:
+                        path:
+                          type: string
+                        message:
+                          type: string
+                        value: {}
+                        schema:
+                          type: object
+                          required:
+                          - type
+                          properties:
+                            type:
+                              type: string
+components:
+  securitySchemes:
+    apiKey:
+      in: header
+      name: Authorization
+      type: apiKey
