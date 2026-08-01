@@ -1,0 +1,54 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.quo.com/docs/mdx/api-reference/changelog.md
+scheme: dated + semver
+current_version: v1
+entries:
+- date: '2026-06-18'
+  breaking: false
+  additions:
+  - Added conversationId to message responses.
+  - Group messaging support via the participants filter.
+- date: '2026-06-16'
+  breaking: false
+  additions:
+  - Endpoints to mark conversations as done or open.
+  - Group messaging accepts up to 10 phone numbers in the "to" array.
+- date: '2026-06-15'
+  breaking: false
+  additions:
+  - Added "Mark a conversation as read" endpoint.
+- date: '2026-06-08'
+  breaking: false
+  additions:
+  - Launched Tasks API with 13 endpoints (create, update, complete, assign, manage).
+- date: '2026-05-26'
+  breaking: false
+  additions:
+  - Five call lifecycle beta webhook events (call.ringing, call.answered, call.forwarded, call.missed, call.voicemail.completed).
+- date: '2026-05-11'
+  breaking: false
+  additions:
+  - Beta webhook API with unified create endpoint, eight event types, Standard-Webhooks-compatible signing, and delivery inspection.
+- date: '2025-01-22'
+  version: 1.2.0
+  breaking: false
+  additions:
+  - externalId property on contacts, new contact listing endpoint, improved error handling for invalid custom fields.
+- date: '2024-12-06'
+  version: 1.1.2
+  breaking: false
+  highlights: Fixed pagination token returns; noted totalItems field limitation.
+- date: '2024-11-25'
+  version: 1.1.1
+  breaking: false
+  highlights: Corrected phone number E164 format validation.
+- date: '2024-11-07'
+  version: 1.1.0
+  breaking: false
+  additions:
+  - restrictions property showing regional limitations for phone numbers.
+- date: '2024-10-21'
+  version: 1.0.0
+  breaking: true
+  highlights: Public API v1 release; deprecated parameters and v0 endpoints removed.

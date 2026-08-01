@@ -1,0 +1,44 @@
+generated: '2026-07-20'
+method: searched
+type: Webhooks
+source: openapi/quo-public-api-v1.json + https://www.quo.com/docs/mdx/api-reference/changelog.md
+description: >-
+  Quo does not publish an AsyncAPI document. It ships a webhook API with a
+  unified create surface and Standard-Webhooks-compatible HMAC signing.
+signing: Standard-Webhooks (HMAC)
+management_operations:
+- operationId: listWebhooks_v1
+  method: GET
+  path: /v1/webhooks
+- operationId: getWebhookById_v1
+  method: GET
+  path: /v1/webhooks/{id}
+- operationId: deleteWebhookById_v1
+  method: DELETE
+  path: /v1/webhooks/{id}
+- operationId: createMessageWebhook_v1
+  method: POST
+  path: /v1/webhooks/messages
+- operationId: createCallWebhook_v1
+  method: POST
+  path: /v1/webhooks/calls
+- operationId: createCallSummaryWebhook_v1
+  method: POST
+  path: /v1/webhooks/call-summaries
+- operationId: createCallTranscriptWebhook_v1
+  method: POST
+  path: /v1/webhooks/call-transcripts
+events:
+- message.received
+- message.delivered
+- call.ringing
+- call.answered
+- call.forwarded
+- call.missed
+- call.voicemail.completed
+- call.summary.completed
+- call.transcript.completed
+note: >-
+  Event names above are drawn from the documented webhook catalog and changelog
+  (beta at time of publication). Call summary/transcript events require business
+  or scale plans.

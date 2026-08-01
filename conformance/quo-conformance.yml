@@ -1,0 +1,43 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/quo-public-api-v1.json + https://www.quo.com/docs
+standards:
+- id: oauth2
+  conforms: false
+  evidence: API uses a static apiKey in the Authorization header; no OAuth2 flows are declared.
+- id: oidc
+  conforms: false
+  evidence: No OpenID Connect / openid-configuration endpoint (probed 404).
+- id: rfc9457
+  conforms: false
+  evidence: Errors use standard HTTP status codes with plain JSON bodies, not application/problem+json.
+- id: idempotency
+  conforms: false
+  evidence: No Idempotency-Key header documented or present in the OpenAPI; POST /v1/messages is not declared idempotent.
+- id: pagination
+  conforms: true
+  evidence: List endpoints (calls, messages, contacts, conversations, tasks, users) are cursor/token paginated with maxResults + pageToken.
+- id: webhooks
+  conforms: true
+  evidence: >-
+    Webhook API with Standard-Webhooks-compatible HMAC signing; create/list/get/delete
+    endpoints for message, call, call-summary, and call-transcript events.
+- id: json:api
+  conforms: false
+  evidence: Responses use a plain data-envelope JSON shape, not the JSON:API media type.
+- id: fhir
+  conforms: false
+  evidence: Not a healthcare data API.
+- id: scim
+  conforms: false
+  evidence: No SCIM user-provisioning surface.
+compliance:
+- id: soc2
+  conforms: true
+  evidence: SOC 2 stated on https://www.quo.com/security.
+- id: hipaa
+  conforms: true
+  evidence: HIPAA stated on https://www.quo.com/security.
+- id: gdpr
+  conforms: true
+  evidence: GDPR stated on https://www.quo.com/security.

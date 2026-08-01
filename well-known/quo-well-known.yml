@@ -1,0 +1,40 @@
+generated: '2026-07-20'
+method: probed
+source: live HTTP probes of Quo hosts
+probes:
+- host: https://api.quo.com
+  paths:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+- host: https://www.quo.com
+  paths:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+result: none
+note: No .well-known descriptors published on api.quo.com or www.quo.com as of probe date.

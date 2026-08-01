@@ -1,0 +1,33 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/quo-public-api-v1.json
+api: Quo Public API v1
+base_url: https://api.quo.com
+auth: apiKey in Authorization header (no Bearer prefix)
+skills:
+- file: quo-send-text-message.md
+  name: Send a text message with Quo
+  operations:
+  - sendMessage_v1
+  - listPhoneNumbers_v1
+  - listMessages_v1
+- file: quo-sync-contacts.md
+  name: Sync contacts into Quo
+  operations:
+  - createContact_v1
+  - listContacts_v1
+  - updateContactById_v1
+  - getContactCustomFields_v1
+- file: quo-call-intelligence.md
+  name: Retrieve Quo call summaries and transcripts
+  operations:
+  - listCalls_v1
+  - getCallSummary_v1
+  - getCallTranscript_v1
+- file: quo-manage-tasks.md
+  name: Manage Quo tasks
+  operations:
+  - createTask_v1
+  - assignTask_v1
+  - completeTask_v1
+  - listTasks_v1

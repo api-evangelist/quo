@@ -1,0 +1,93 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/quo-public-api-v1.json
+description: Entity-relationship graph derived from Quo Public API v1 OpenAPI operations and id-reference fields.
+entities:
+- name: PhoneNumber
+  root_path: /v1/phone-numbers
+- name: User
+  root_path: /v1/users
+- name: Contact
+  root_path: /v1/contacts
+- name: ContactCustomField
+  root_path: /v1/contact-custom-fields
+- name: Conversation
+  root_path: /v1/conversations
+- name: Message
+  root_path: /v1/messages
+- name: Call
+  root_path: /v1/calls
+- name: CallSummary
+  root_path: /v1/call-summaries
+- name: CallTranscript
+  root_path: /v1/call-transcripts
+- name: Voicemail
+  root_path: /v1/call-voicemails
+- name: Recording
+  root_path: /v1/call-recordings
+- name: Task
+  root_path: /v1/tasks
+- name: Webhook
+  root_path: /v1/webhooks
+relationships:
+- from: PhoneNumber
+  to: User
+  type: belongs_to
+  via: userId
+- from: Conversation
+  to: PhoneNumber
+  type: belongs_to
+  via: phoneNumberId
+- from: Conversation
+  to: Message
+  type: has_many
+- from: Message
+  to: Conversation
+  type: belongs_to
+  via: conversationId
+- from: Message
+  to: PhoneNumber
+  type: belongs_to
+  via: phoneNumberId
+- from: Call
+  to: PhoneNumber
+  type: belongs_to
+  via: phoneNumberId
+- from: CallSummary
+  to: Call
+  type: belongs_to
+  via: callId
+- from: CallTranscript
+  to: Call
+  type: belongs_to
+  via: callId
+- from: Voicemail
+  to: Call
+  type: belongs_to
+  via: callId
+- from: Recording
+  to: Call
+  type: belongs_to
+  via: callId
+- from: Contact
+  to: ContactCustomField
+  type: has_many
+- from: Task
+  to: PhoneNumber
+  type: belongs_to
+  via: phoneNumberId
+- from: Task
+  to: Conversation
+  type: belongs_to
+  via: conversationId
+- from: Task
+  to: User
+  type: has_many
+  via: assignees
+- from: Webhook
+  to: User
+  type: belongs_to
+  via: userId
+note: >-
+  Tasks link to exactly one of phoneNumberId, conversationId, or activityId.
+  Contacts carry an externalId for correlation with external CRM/source systems.

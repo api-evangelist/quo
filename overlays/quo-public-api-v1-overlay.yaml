@@ -1,0 +1,31 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enrichment overlay for the Quo Public API v1
+  version: 1.0.0
+  x-generated: '2026-07-20'
+  x-method: generated
+  x-source: openapi/quo-public-api-v1.json
+extends: ../openapi/quo-public-api-v1.json
+actions:
+- target: $.info
+  description: Annotate provider identity and cross-cutting semantics captured during enrichment.
+  update:
+    x-provider: Quo (formerly OpenPhone)
+    x-auth-style: api-key in Authorization header, no Bearer prefix
+    x-rate-limit: 10 requests/second per API key
+    x-webhook-signing: Standard-Webhooks (HMAC)
+    x-compliance:
+    - SOC 2
+    - HIPAA
+    - GDPR
+    x-apievangelist-artifacts:
+      conventions: conventions/quo-conventions.yml
+      errors: errors/quo-problem-types.yml
+      lifecycle: lifecycle/quo-lifecycle.yml
+      webhooks: asyncapi/quo-webhooks.yml
+      data-model: data-model/quo-data-model.yml
+- target: $.servers
+  description: Confirm the production base URL.
+  update:
+  - url: https://api.quo.com
+    description: Production server

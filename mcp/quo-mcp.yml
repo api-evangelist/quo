@@ -1,0 +1,61 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/quo-public-api-v1.json
+name: Quo API MCP (candidate)
+description: >-
+  Candidate Model Context Protocol tool surface derived from the Quo Public API
+  v1 OpenAPI operations. Quo markets a "Quo MCP" capability on quo.com, but no
+  hosted/remote MCP server endpoint or manifest was discoverable at a public URL
+  as of the derivation date (www.quo.com/mcp returned 404). This is a proposed
+  tool mapping, not an operating server.
+server:
+  hosted: null
+  transport: null
+  auth: apiKey (Authorization header) — same credential as the REST API
+base_url: https://api.quo.com
+tools:
+- name: send_text_message
+  operationId: sendMessage_v1
+  method: POST
+  path: /v1/messages
+- name: list_messages
+  operationId: listMessages_v1
+  method: GET
+  path: /v1/messages
+- name: list_calls
+  operationId: listCalls_v1
+  method: GET
+  path: /v1/calls
+- name: get_call_summary
+  operationId: getCallSummary_v1
+  method: GET
+  path: /v1/call-summaries/{callId}
+- name: get_call_transcript
+  operationId: getCallTranscript_v1
+  method: GET
+  path: /v1/call-transcripts/{id}
+- name: create_contact
+  operationId: createContact_v1
+  method: POST
+  path: /v1/contacts
+- name: list_contacts
+  operationId: listContacts_v1
+  method: GET
+  path: /v1/contacts
+- name: list_conversations
+  operationId: listConversations_v1
+  method: GET
+  path: /v1/conversations
+- name: create_task
+  operationId: createTask_v1
+  method: POST
+  path: /v1/tasks
+- name: list_phone_numbers
+  operationId: listPhoneNumbers_v1
+  method: GET
+  path: /v1/phone-numbers
+- name: create_message_webhook
+  operationId: createMessageWebhook_v1
+  method: POST
+  path: /v1/webhooks/messages

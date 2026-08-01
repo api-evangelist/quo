@@ -1,0 +1,43 @@
+generated: '2026-07-20'
+method: searched
+source: openapi/quo-public-api-v1.json + https://www.quo.com/docs
+auth:
+  style: api-key
+  header: Authorization
+  bearer: false
+  note: Raw API key in the Authorization header (no "Bearer" prefix). Key is created in workspace Settings > API by an owner/admin.
+  detail: authentication/quo-authentication.yml
+idempotency:
+  supported: false
+  note: No Idempotency-Key header is documented or present in the OpenAPI; retries of POST /v1/messages are not deduplicated by the API.
+pagination:
+  style: cursor
+  params:
+  - maxResults
+  - pageToken
+  response_fields:
+  - data
+  - totalItems
+  note: List endpoints return a token-based next page; totalItems has documented limitations.
+versioning:
+  style: path
+  value: /v1
+error_envelope:
+  format: http-status
+  problem_json: false
+  detail: errors/quo-problem-types.yml
+rate_limit:
+  limit: 10 requests/second per API key
+  signal: 429 Too Many Requests
+  detail: lifecycle/quo-lifecycle.yml
+webhooks:
+  signing: Standard-Webhooks-compatible HMAC
+  events:
+  - message
+  - call
+  - call.summary
+  - call.transcript
+  detail: asyncapi/quo-webhooks.yml
+metadata:
+  custom_fields: Contacts support user-defined custom fields (read via GET /v1/contact-custom-fields).
+  external_id: Contacts carry an externalId for CRM/source correlation.

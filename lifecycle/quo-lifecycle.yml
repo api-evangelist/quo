@@ -1,0 +1,31 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.quo.com/docs/mdx/api-reference/changelog.md + https://support.quo.com/changelog
+versioning:
+  scheme: path
+  current: v1
+  base_path: /v1
+  note: >-
+    Public API v1 released 2026-10-21 (as OpenPhone, now Quo). v0 endpoints and
+    deprecated parameters were removed at the v1 cutover.
+changelog:
+  api_changelog: https://www.quo.com/docs/mdx/api-reference/changelog.md
+  product_changelog: https://support.quo.com/changelog
+deprecation:
+  policy_documented: true
+  evidence: >-
+    v1 release notes explicitly removed deprecated parameters and v0 endpoints;
+    the changelog tracks additions and fixes with dates.
+  headers:
+    sunset: unknown
+    deprecation: unknown
+status_page:
+  url: https://status.quo.com
+  note: Probe status.quo.com for a live status/uptime page (OpenPhone historically ran a public status page).
+sla:
+  documented: false
+  note: No public SLA numbers found in developer docs.
+rate_limits:
+  documented: true
+  limit: 10 requests/second per API key
+  source: https://www.quo.com/docs/mdx/api-reference/rate-limits.md

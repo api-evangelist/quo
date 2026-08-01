@@ -1,0 +1,23 @@
+generated: '2026-07-20'
+method: searched
+source: openapi/quo-public-api-v1.json
+docs: https://www.quo.com/docs/mdx/api-reference/authentication
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apiKey
+  type: apiKey
+  in: header
+  parameter: Authorization
+  bearer: false
+  note: >-
+    Send the raw API key as the Authorization header value; the Quo API does NOT
+    use a Bearer token prefix. Keys are generated in workspace Settings > API by
+    an owner or admin, are named (no spaces), and grant full workspace access.
+    Rotate regularly and revoke compromised keys from workspace settings.
+  sources:
+  - openapi/quo-public-api-v1.json
+  - https://www.quo.com/docs/mdx/api-reference/authentication

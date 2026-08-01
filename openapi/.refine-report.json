@@ -1,0 +1,30 @@
+{
+  "provider": "quo",
+  "sources": [
+    "quo-calls-api-openapi.yml",
+    "quo-contact-custom-fields-api-openapi.yml",
+    "quo-contacts-api-openapi.yml",
+    "quo-conversations-api-openapi.yml",
+    "quo-messages-api-openapi.yml",
+    "quo-phone-numbers-api-openapi.yml",
+    "quo-tasks-api-openapi.yml",
+    "quo-users-api-openapi.yml",
+    "quo-webhooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "quo-calls-api-openapi.yml",
+    "quo-contact-custom-fields-api-openapi.yml",
+    "quo-contacts-api-openapi.yml",
+    "quo-conversations-api-openapi.yml",
+    "quo-messages-api-openapi.yml",
+    "quo-phone-numbers-api-openapi.yml",
+    "quo-tasks-api-openapi.yml",
+    "quo-users-api-openapi.yml",
+    "quo-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

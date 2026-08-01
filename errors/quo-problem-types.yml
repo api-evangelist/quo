@@ -1,0 +1,37 @@
+generated: '2026-07-20'
+method: searched
+format: http-status
+source: https://www.quo.com/docs/mdx/api-reference/error-codes.md
+envelope: >-
+  Standard HTTP status codes. Some 4xx errors include a machine-readable error
+  code for programmatic handling. Not RFC 9457 (application/problem+json).
+problem_types:
+- status: 400
+  title: Bad Request
+  meaning: Invalid parameters.
+- status: 401
+  title: Unauthorized
+  meaning: Missing or invalid API key.
+  remediation: Provide a valid key in the Authorization header (not as a Bearer token).
+- status: 402
+  title: Payment Required
+  meaning: Billing/credit condition prevents the request (declared in OpenAPI responses).
+- status: 403
+  title: Forbidden
+  meaning: Insufficient permissions or an account setting is not enabled.
+- status: 404
+  title: Not Found
+  meaning: Resource doesn't exist.
+- status: 409
+  title: Conflict
+  meaning: Conflict with another request.
+- status: 422
+  title: Unprocessable Entity
+  meaning: Request is well-formed but contains semantic errors.
+- status: 429
+  title: Too Many Requests
+  meaning: Rate limit exceeded (10 req/s per API key).
+  remediation: Throttle requests and apply exponential backoff.
+- status: 500
+  title: Server Error
+  meaning: Quo-side issue.

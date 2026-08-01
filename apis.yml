@@ -1,8 +1,28 @@
 aid: quo
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/quo.png
 name: Quo
-description: 'Quo is a company surfaced as a portfolio company of craft-ventures, general-catalyst, kindred-ventures
-  and added to the API Evangelist network as a stub for enrichment. Sector: fintech. This profile is a
-  lead awaiting the enrichment pipeline.'
+description: >-
+  Quo (formerly OpenPhone) is an AI-powered business communication platform that
+  unifies calls, texts, and contacts in one shared workspace for startups and
+  small businesses. Its REST Public API (https://api.quo.com/v1) lets developers
+  send and receive SMS, manage contacts, conversations, and tasks, retrieve
+  AI-generated call summaries and transcripts, and subscribe to
+  Standard-Webhooks-signed events for messages and calls. Authentication is via a
+  workspace API key sent in the Authorization header. This profile was added to
+  the API Evangelist network from VC portfolio discovery and enriched from Quo's
+  live developer documentation and published OpenAPI.
 url: https://raw.githubusercontent.com/api-evangelist/quo/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -14,16 +34,333 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-- Fintech
-apis: []
+- Communication
+- Messaging
+- SMS
+- Voice
+- Contacts
+- Webhooks
+- API
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: quo:quo-calls-api
+  name: Quo Calls API
+  description: Operations related to calls
+  humanURL: https://www.quo.com/api
+  baseURL: https://api.quo.com
+  tags:
+  - Calls
+  properties:
+  - type: OpenAPI
+    url: openapi/quo-calls-api-openapi.yml
+  - type: APIReference
+    url: https://www.quo.com/docs/mdx/api-reference/introduction
+  - type: Documentation
+    url: https://www.quo.com/docs
+  - type: GettingStarted
+    url: https://www.quo.com/docs/mdx/api-reference/send-your-first-message
+  - type: Authentication
+    url: authentication/quo-authentication.yml
+  - type: Conventions
+    url: conventions/quo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/quo-problem-types.yml
+  - type: DataModel
+    url: data-model/quo-data-model.yml
+  - type: Webhooks
+    url: asyncapi/quo-webhooks.yml
+  - type: Lifecycle
+    url: lifecycle/quo-lifecycle.yml
+  - type: ChangeLog
+    url: changelog/quo-changelog.yml
+- aid: quo:quo-contact-custom-fields-api
+  name: Quo Contact Custom Fields API
+  description: The Contact Custom Fields API from Quo — 1 operation(s) for contact custom fields.
+  humanURL: https://www.quo.com/api
+  baseURL: https://api.quo.com
+  tags:
+  - Contact Custom Fields
+  properties:
+  - type: OpenAPI
+    url: openapi/quo-contact-custom-fields-api-openapi.yml
+  - type: APIReference
+    url: https://www.quo.com/docs/mdx/api-reference/introduction
+  - type: Documentation
+    url: https://www.quo.com/docs
+  - type: GettingStarted
+    url: https://www.quo.com/docs/mdx/api-reference/send-your-first-message
+  - type: Authentication
+    url: authentication/quo-authentication.yml
+  - type: Conventions
+    url: conventions/quo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/quo-problem-types.yml
+  - type: DataModel
+    url: data-model/quo-data-model.yml
+  - type: Webhooks
+    url: asyncapi/quo-webhooks.yml
+  - type: Lifecycle
+    url: lifecycle/quo-lifecycle.yml
+  - type: ChangeLog
+    url: changelog/quo-changelog.yml
+- aid: quo:quo-contacts-api
+  name: Quo Contacts API
+  description: Operations related to contacts
+  humanURL: https://www.quo.com/api
+  baseURL: https://api.quo.com
+  tags:
+  - Contacts
+  properties:
+  - type: OpenAPI
+    url: openapi/quo-contacts-api-openapi.yml
+  - type: APIReference
+    url: https://www.quo.com/docs/mdx/api-reference/introduction
+  - type: Documentation
+    url: https://www.quo.com/docs
+  - type: GettingStarted
+    url: https://www.quo.com/docs/mdx/api-reference/send-your-first-message
+  - type: Authentication
+    url: authentication/quo-authentication.yml
+  - type: Conventions
+    url: conventions/quo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/quo-problem-types.yml
+  - type: DataModel
+    url: data-model/quo-data-model.yml
+  - type: Webhooks
+    url: asyncapi/quo-webhooks.yml
+  - type: Lifecycle
+    url: lifecycle/quo-lifecycle.yml
+  - type: ChangeLog
+    url: changelog/quo-changelog.yml
+- aid: quo:quo-conversations-api
+  name: Quo Conversations API
+  description: Operations related to conversations
+  humanURL: https://www.quo.com/api
+  baseURL: https://api.quo.com
+  tags:
+  - Conversations
+  properties:
+  - type: OpenAPI
+    url: openapi/quo-conversations-api-openapi.yml
+  - type: APIReference
+    url: https://www.quo.com/docs/mdx/api-reference/introduction
+  - type: Documentation
+    url: https://www.quo.com/docs
+  - type: GettingStarted
+    url: https://www.quo.com/docs/mdx/api-reference/send-your-first-message
+  - type: Authentication
+    url: authentication/quo-authentication.yml
+  - type: Conventions
+    url: conventions/quo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/quo-problem-types.yml
+  - type: DataModel
+    url: data-model/quo-data-model.yml
+  - type: Webhooks
+    url: asyncapi/quo-webhooks.yml
+  - type: Lifecycle
+    url: lifecycle/quo-lifecycle.yml
+  - type: ChangeLog
+    url: changelog/quo-changelog.yml
+- aid: quo:quo-messages-api
+  name: Quo Messages API
+  description: Operations related to text messages
+  humanURL: https://www.quo.com/api
+  baseURL: https://api.quo.com
+  tags:
+  - Messages
+  properties:
+  - type: OpenAPI
+    url: openapi/quo-messages-api-openapi.yml
+  - type: APIReference
+    url: https://www.quo.com/docs/mdx/api-reference/introduction
+  - type: Documentation
+    url: https://www.quo.com/docs
+  - type: GettingStarted
+    url: https://www.quo.com/docs/mdx/api-reference/send-your-first-message
+  - type: Authentication
+    url: authentication/quo-authentication.yml
+  - type: Conventions
+    url: conventions/quo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/quo-problem-types.yml
+  - type: DataModel
+    url: data-model/quo-data-model.yml
+  - type: Webhooks
+    url: asyncapi/quo-webhooks.yml
+  - type: Lifecycle
+    url: lifecycle/quo-lifecycle.yml
+  - type: ChangeLog
+    url: changelog/quo-changelog.yml
+- aid: quo:quo-phone-numbers-api
+  name: Quo Phone Numbers API
+  description: Operations related to phone numbers
+  humanURL: https://www.quo.com/api
+  baseURL: https://api.quo.com
+  tags:
+  - Phone Numbers
+  properties:
+  - type: OpenAPI
+    url: openapi/quo-phone-numbers-api-openapi.yml
+  - type: APIReference
+    url: https://www.quo.com/docs/mdx/api-reference/introduction
+  - type: Documentation
+    url: https://www.quo.com/docs
+  - type: GettingStarted
+    url: https://www.quo.com/docs/mdx/api-reference/send-your-first-message
+  - type: Authentication
+    url: authentication/quo-authentication.yml
+  - type: Conventions
+    url: conventions/quo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/quo-problem-types.yml
+  - type: DataModel
+    url: data-model/quo-data-model.yml
+  - type: Webhooks
+    url: asyncapi/quo-webhooks.yml
+  - type: Lifecycle
+    url: lifecycle/quo-lifecycle.yml
+  - type: ChangeLog
+    url: changelog/quo-changelog.yml
+- aid: quo:quo-tasks-api
+  name: Quo Tasks API
+  description: The Tasks API from Quo — 10 operation(s) for tasks.
+  humanURL: https://www.quo.com/api
+  baseURL: https://api.quo.com
+  tags:
+  - Tasks
+  properties:
+  - type: OpenAPI
+    url: openapi/quo-tasks-api-openapi.yml
+  - type: APIReference
+    url: https://www.quo.com/docs/mdx/api-reference/introduction
+  - type: Documentation
+    url: https://www.quo.com/docs
+  - type: GettingStarted
+    url: https://www.quo.com/docs/mdx/api-reference/send-your-first-message
+  - type: Authentication
+    url: authentication/quo-authentication.yml
+  - type: Conventions
+    url: conventions/quo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/quo-problem-types.yml
+  - type: DataModel
+    url: data-model/quo-data-model.yml
+  - type: Webhooks
+    url: asyncapi/quo-webhooks.yml
+  - type: Lifecycle
+    url: lifecycle/quo-lifecycle.yml
+  - type: ChangeLog
+    url: changelog/quo-changelog.yml
+- aid: quo:quo-users-api
+  name: Quo Users API
+  description: Operations related to users
+  humanURL: https://www.quo.com/api
+  baseURL: https://api.quo.com
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/quo-users-api-openapi.yml
+  - type: APIReference
+    url: https://www.quo.com/docs/mdx/api-reference/introduction
+  - type: Documentation
+    url: https://www.quo.com/docs
+  - type: GettingStarted
+    url: https://www.quo.com/docs/mdx/api-reference/send-your-first-message
+  - type: Authentication
+    url: authentication/quo-authentication.yml
+  - type: Conventions
+    url: conventions/quo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/quo-problem-types.yml
+  - type: DataModel
+    url: data-model/quo-data-model.yml
+  - type: Webhooks
+    url: asyncapi/quo-webhooks.yml
+  - type: Lifecycle
+    url: lifecycle/quo-lifecycle.yml
+  - type: ChangeLog
+    url: changelog/quo-changelog.yml
+- aid: quo:quo-webhooks-api
+  name: Quo Webhooks API
+  description: Operations related to webhooks
+  humanURL: https://www.quo.com/api
+  baseURL: https://api.quo.com
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/quo-webhooks-api-openapi.yml
+  - type: APIReference
+    url: https://www.quo.com/docs/mdx/api-reference/introduction
+  - type: Documentation
+    url: https://www.quo.com/docs
+  - type: GettingStarted
+    url: https://www.quo.com/docs/mdx/api-reference/send-your-first-message
+  - type: Authentication
+    url: authentication/quo-authentication.yml
+  - type: Conventions
+    url: conventions/quo-conventions.yml
+  - type: ErrorCatalog
+    url: errors/quo-problem-types.yml
+  - type: DataModel
+    url: data-model/quo-data-model.yml
+  - type: Webhooks
+    url: asyncapi/quo-webhooks.yml
+  - type: Lifecycle
+    url: lifecycle/quo-lifecycle.yml
+  - type: ChangeLog
+    url: changelog/quo-changelog.yml
 common:
 - type: Website
   url: https://quo.com
+- type: DeveloperPortal
+  url: https://www.quo.com/docs
+- type: Documentation
+  url: https://www.quo.com/docs
+- type: APIReference
+  url: https://www.quo.com/docs/mdx/api-reference/introduction
+- type: GettingStarted
+  url: https://www.quo.com/docs/mdx/api-reference/send-your-first-message
+- type: Support
+  url: https://support.quo.com
+- type: Pricing
+  url: https://www.quo.com/docs/mdx/pricing-support/pricing-overview
+- type: TermsOfService
+  url: https://www.quo.com/docs/mdx/pricing-support/terms-of-service
+- type: ChangeLog
+  url: https://support.quo.com/changelog
+- type: LLMsTxt
+  url: llms/quo-llms.txt
+- type: Authentication
+  url: authentication/quo-authentication.yml
+- type: Conformance
+  url: conformance/quo-conformance.yml
+- type: DomainSecurity
+  url: security/quo-domain-security.yml
+- type: TrustCenter
+  url: security/quo-trust-center.yml
+- type: Compliance
+  url: security/quo-trust-center.yml
+- type: Deprecation
+  url: lifecycle/quo-lifecycle.yml
+- type: Webhooks
+  url: asyncapi/quo-webhooks.yml
+- type: MCPServer
+  url: mcp/quo-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 16
+  pass: local-v1
