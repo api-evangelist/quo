@@ -1,0 +1,2406 @@
+{
+  "item": [
+    {
+      "id": "c9351022-06d9-46dc-8713-c1b70747e0af",
+      "name": "Contacts",
+      "description": {
+        "content": "Operations related to contacts",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c8ed1851-d1ea-419f-9ad3-ee0728744209",
+          "name": "Create a contact",
+          "request": {
+            "name": "Create a contact",
+            "description": {
+              "content": "Create a contact for a workspace.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"defaultFields\": {\n    \"firstName\": \"<string>\",\n    \"company\": \"<string>\",\n    \"emails\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"lastName\": \"<string>\",\n    \"phoneNumbers\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ],\n    \"role\": \"<string>\"\n  },\n  \"customFields\": [\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"<string>\"\n    },\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"<string>\"\n    }\n  ],\n  \"createdByUserId\": \"<string>\",\n  \"source\": \"public-api\",\n  \"sourceUrl\": \"<uri>\",\n  \"externalId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e6eff8bc-ce69-4886-8a51-5af2a1cfed01",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"defaultFields\": {\n    \"firstName\": \"John\",\n    \"company\": \"Quo\",\n    \"emails\": [\n      {\n        \"name\": \"company email\",\n        \"value\": \"abc@example.com\"\n      },\n      {\n        \"name\": \"company email\",\n        \"value\": \"abc@example.com\"\n      }\n    ],\n    \"lastName\": \"Doe\",\n    \"phoneNumbers\": [\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+12345678901\"\n      },\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+12345678901\"\n      }\n    ],\n    \"role\": \"Sales\"\n  },\n  \"customFields\": [\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\"\n    },\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\"\n    }\n  ],\n  \"createdByUserId\": \"US123abc\",\n  \"source\": \"public-api\",\n  \"sourceUrl\": \"https://openphone.co/contacts/664d0db69fcac7cf2e6ec\",\n  \"externalId\": \"664d0db69fcac7cf2e6ec\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"664d0db69fcac7cf2e6ec\",\n    \"externalId\": \"664d0db69fcac7cf2e6ec\",\n    \"source\": \"public-api\",\n    \"sourceUrl\": \"https://openphone.co/contacts/664d0db69fcac7cf2e6ec\",\n    \"defaultFields\": {\n      \"company\": \"Quo\",\n      \"emails\": [\n        {\n          \"name\": \"company email\",\n          \"value\": \"abc@example.com\",\n          \"id\": \"acb123\"\n        },\n        {\n          \"name\": \"company email\",\n          \"value\": \"abc@example.com\",\n          \"id\": \"acb123\"\n        }\n      ],\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"phoneNumbers\": [\n        {\n          \"name\": \"company phone\",\n          \"value\": \"+12345678901\",\n          \"id\": \"acb123\"\n        },\n        {\n          \"name\": \"company phone\",\n          \"value\": \"+12345678901\",\n          \"id\": \"acb123\"\n        }\n      ],\n      \"role\": \"Sales\"\n    },\n    \"customFields\": [\n      {\n        \"name\": \"Inbound Lead\",\n        \"type\": \"multi-select\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"key\": \"inbound-lead\",\n        \"id\": \"66d0d87d534de8fd1c433cec3\"\n      },\n      {\n        \"name\": \"Inbound Lead\",\n        \"type\": \"multi-select\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"key\": \"inbound-lead\",\n        \"id\": \"66d0d87d534de8fd1c433cec3\"\n      }\n    ],\n    \"createdAt\": \"2022-01-01T00:00:00Z\",\n    \"updatedAt\": \"2022-01-01T00:00:00Z\",\n    \"createdByUserId\": \"US123abc\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e9a070b-763d-4100-bae2-b8cd3df9c880",
+              "name": "Invalid Custom Field Item",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"defaultFields\": {\n    \"firstName\": \"John\",\n    \"company\": \"Quo\",\n    \"emails\": [\n      {\n        \"name\": \"company email\",\n        \"value\": \"abc@example.com\"\n      },\n      {\n        \"name\": \"company email\",\n        \"value\": \"abc@example.com\"\n      }\n    ],\n    \"lastName\": \"Doe\",\n    \"phoneNumbers\": [\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+12345678901\"\n      },\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+12345678901\"\n      }\n    ],\n    \"role\": \"Sales\"\n  },\n  \"customFields\": [\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\"\n    },\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\"\n    }\n  ],\n  \"createdByUserId\": \"US123abc\",\n  \"source\": \"public-api\",\n  \"sourceUrl\": \"https://openphone.co/contacts/664d0db69fcac7cf2e6ec\",\n  \"externalId\": \"664d0db69fcac7cf2e6ec\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 5963.027773264359,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4bef74f6-687e-414d-9ff2-63439775ba91",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"defaultFields\": {\n    \"firstName\": \"John\",\n    \"company\": \"Quo\",\n    \"emails\": [\n      {\n        \"name\": \"company email\",\n        \"value\": \"abc@example.com\"\n      },\n      {\n        \"name\": \"company email\",\n        \"value\": \"abc@example.com\"\n      }\n    ],\n    \"lastName\": \"Doe\",\n    \"phoneNumbers\": [\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+12345678901\"\n      },\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+12345678901\"\n      }\n    ],\n    \"role\": \"Sales\"\n  },\n  \"customFields\": [\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\"\n    },\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\"\n    }\n  ],\n  \"createdByUserId\": \"US123abc\",\n  \"source\": \"public-api\",\n  \"sourceUrl\": \"https://openphone.co/contacts/664d0db69fcac7cf2e6ec\",\n  \"externalId\": \"664d0db69fcac7cf2e6ec\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 6464.792600737626,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b0b16b35-6446-497e-b56f-6c3f0d6064bc",
+              "name": "Not Phone Number User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"defaultFields\": {\n    \"firstName\": \"John\",\n    \"company\": \"Quo\",\n    \"emails\": [\n      {\n        \"name\": \"company email\",\n        \"value\": \"abc@example.com\"\n      },\n      {\n        \"name\": \"company email\",\n        \"value\": \"abc@example.com\"\n      }\n    ],\n    \"lastName\": \"Doe\",\n    \"phoneNumbers\": [\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+12345678901\"\n      },\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+12345678901\"\n      }\n    ],\n    \"role\": \"Sales\"\n  },\n  \"customFields\": [\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\"\n    },\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\"\n    }\n  ],\n  \"createdByUserId\": \"US123abc\",\n  \"source\": \"public-api\",\n  \"sourceUrl\": \"https://openphone.co/contacts/664d0db69fcac7cf2e6ec\",\n  \"externalId\": \"664d0db69fcac7cf2e6ec\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 297.16827515865793,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4623f72d-bb9c-4c09-befc-092c7d2077ea",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"defaultFields\": {\n    \"firstName\": \"John\",\n    \"company\": \"Quo\",\n    \"emails\": [\n      {\n        \"name\": \"company email\",\n        \"value\": \"abc@example.com\"\n      },\n      {\n        \"name\": \"company email\",\n        \"value\": \"abc@example.com\"\n      }\n    ],\n    \"lastName\": \"Doe\",\n    \"phoneNumbers\": [\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+12345678901\"\n      },\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+12345678901\"\n      }\n    ],\n    \"role\": \"Sales\"\n  },\n  \"customFields\": [\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\"\n    },\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\"\n    }\n  ],\n  \"createdByUserId\": \"US123abc\",\n  \"source\": \"public-api\",\n  \"sourceUrl\": \"https://openphone.co/contacts/664d0db69fcac7cf2e6ec\",\n  \"externalId\": \"664d0db69fcac7cf2e6ec\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 1138.7006076820894,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f55a9ccf-28a5-4ad8-b5a6-4487286f708b",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"defaultFields\": {\n    \"firstName\": \"John\",\n    \"company\": \"Quo\",\n    \"emails\": [\n      {\n        \"name\": \"company email\",\n        \"value\": \"abc@example.com\"\n      },\n      {\n        \"name\": \"company email\",\n        \"value\": \"abc@example.com\"\n      }\n    ],\n    \"lastName\": \"Doe\",\n    \"phoneNumbers\": [\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+12345678901\"\n      },\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+12345678901\"\n      }\n    ],\n    \"role\": \"Sales\"\n  },\n  \"customFields\": [\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\"\n    },\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\"\n    }\n  ],\n  \"createdByUserId\": \"US123abc\",\n  \"source\": \"public-api\",\n  \"sourceUrl\": \"https://openphone.co/contacts/664d0db69fcac7cf2e6ec\",\n  \"externalId\": \"664d0db69fcac7cf2e6ec\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 3302.394517428018,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0366c207-e51e-495f-937c-005c3b3364b1",
+              "name": "Unknown Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"defaultFields\": {\n    \"firstName\": \"John\",\n    \"company\": \"Quo\",\n    \"emails\": [\n      {\n        \"name\": \"company email\",\n        \"value\": \"abc@example.com\"\n      },\n      {\n        \"name\": \"company email\",\n        \"value\": \"abc@example.com\"\n      }\n    ],\n    \"lastName\": \"Doe\",\n    \"phoneNumbers\": [\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+12345678901\"\n      },\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+12345678901\"\n      }\n    ],\n    \"role\": \"Sales\"\n  },\n  \"customFields\": [\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\"\n    },\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\"\n    }\n  ],\n  \"createdByUserId\": \"US123abc\",\n  \"source\": \"public-api\",\n  \"sourceUrl\": \"https://openphone.co/contacts/664d0db69fcac7cf2e6ec\",\n  \"externalId\": \"664d0db69fcac7cf2e6ec\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 5731.53889844997,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0eebe4ae-bf73-44b2-a868-064e4a35fcfb",
+          "name": "List contacts",
+          "request": {
+            "name": "List contacts",
+            "description": {
+              "content": "Retrieve a paginated list of contacts. You can optionally filter the results by providing external IDs and sources. When no external IDs are provided, all contacts for the organization are returned.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "contacts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "externalIds",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalIds",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sources",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sources",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxResults",
+                  "value": "10",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "46ac7656-870f-48dd-9476-bc87ac95e4f4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "externalIds",
+                      "value": "664d0db69fcac7cf2e6ec"
+                    },
+                    {
+                      "key": "externalIds",
+                      "value": "664d0db69fcac7cf2e6ec"
+                    },
+                    {
+                      "key": "sources",
+                      "value": "public-api"
+                    },
+                    {
+                      "key": "sources",
+                      "value": "public-api"
+                    },
+                    {
+                      "key": "maxResults",
+                      "value": "10"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": \"664d0db69fcac7cf2e6ec\",\n      \"externalId\": \"664d0db69fcac7cf2e6ec\",\n      \"source\": \"public-api\",\n      \"sourceUrl\": \"https://openphone.co/contacts/664d0db69fcac7cf2e6ec\",\n      \"defaultFields\": {\n        \"company\": \"Quo\",\n        \"emails\": [\n          {\n            \"name\": \"company email\",\n            \"value\": \"abc@example.com\",\n            \"id\": \"acb123\"\n          },\n          {\n            \"name\": \"company email\",\n            \"value\": \"abc@example.com\",\n            \"id\": \"acb123\"\n          }\n        ],\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"phoneNumbers\": [\n          {\n            \"name\": \"company phone\",\n            \"value\": \"+12345678901\",\n            \"id\": \"acb123\"\n          },\n          {\n            \"name\": \"company phone\",\n            \"value\": \"+12345678901\",\n            \"id\": \"acb123\"\n          }\n        ],\n        \"role\": \"Sales\"\n      },\n      \"customFields\": [\n        {\n          \"name\": \"Inbound Lead\",\n          \"type\": \"multi-select\",\n          \"value\": [\n            \"string\",\n            \"string\"\n          ],\n          \"key\": \"inbound-lead\",\n          \"id\": \"66d0d87d534de8fd1c433cec3\"\n        },\n        {\n          \"name\": \"Inbound Lead\",\n          \"type\": \"multi-select\",\n          \"value\": [\n            \"string\",\n            \"string\"\n          ],\n          \"key\": \"inbound-lead\",\n          \"id\": \"66d0d87d534de8fd1c433cec3\"\n        }\n      ],\n      \"createdAt\": \"2022-01-01T00:00:00Z\",\n      \"updatedAt\": \"2022-01-01T00:00:00Z\",\n      \"createdByUserId\": \"US123abc\"\n    },\n    {\n      \"id\": \"664d0db69fcac7cf2e6ec\",\n      \"externalId\": \"664d0db69fcac7cf2e6ec\",\n      \"source\": \"public-api\",\n      \"sourceUrl\": \"https://openphone.co/contacts/664d0db69fcac7cf2e6ec\",\n      \"defaultFields\": {\n        \"company\": \"Quo\",\n        \"emails\": [\n          {\n            \"name\": \"company email\",\n            \"value\": \"abc@example.com\",\n            \"id\": \"acb123\"\n          },\n          {\n            \"name\": \"company email\",\n            \"value\": \"abc@example.com\",\n            \"id\": \"acb123\"\n          }\n        ],\n        \"firstName\": \"John\",\n        \"lastName\": \"Doe\",\n        \"phoneNumbers\": [\n          {\n            \"name\": \"company phone\",\n            \"value\": \"+12345678901\",\n            \"id\": \"acb123\"\n          },\n          {\n            \"name\": \"company phone\",\n            \"value\": \"+12345678901\",\n            \"id\": \"acb123\"\n          }\n        ],\n        \"role\": \"Sales\"\n      },\n      \"customFields\": [\n        {\n          \"name\": \"Inbound Lead\",\n          \"type\": \"multi-select\",\n          \"value\": [\n            \"string\",\n            \"string\"\n          ],\n          \"key\": \"inbound-lead\",\n          \"id\": \"66d0d87d534de8fd1c433cec3\"\n        },\n        {\n          \"name\": \"Inbound Lead\",\n          \"type\": \"multi-select\",\n          \"value\": [\n            \"string\",\n            \"string\"\n          ],\n          \"key\": \"inbound-lead\",\n          \"id\": \"66d0d87d534de8fd1c433cec3\"\n        }\n      ],\n      \"createdAt\": \"2022-01-01T00:00:00Z\",\n      \"updatedAt\": \"2022-01-01T00:00:00Z\",\n      \"createdByUserId\": \"US123abc\"\n    }\n  ],\n  \"totalItems\": 5349,\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f8d9dd54-b274-4a81-a7e3-ee58124331d4",
+              "name": "Invalid Custom Field Item",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "externalIds",
+                      "value": "664d0db69fcac7cf2e6ec"
+                    },
+                    {
+                      "key": "externalIds",
+                      "value": "664d0db69fcac7cf2e6ec"
+                    },
+                    {
+                      "key": "sources",
+                      "value": "public-api"
+                    },
+                    {
+                      "key": "sources",
+                      "value": "public-api"
+                    },
+                    {
+                      "key": "maxResults",
+                      "value": "10"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 5963.027773264359,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f2c5f462-1536-4f98-aa7c-18500fe1e81e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "externalIds",
+                      "value": "664d0db69fcac7cf2e6ec"
+                    },
+                    {
+                      "key": "externalIds",
+                      "value": "664d0db69fcac7cf2e6ec"
+                    },
+                    {
+                      "key": "sources",
+                      "value": "public-api"
+                    },
+                    {
+                      "key": "sources",
+                      "value": "public-api"
+                    },
+                    {
+                      "key": "maxResults",
+                      "value": "10"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 6464.792600737626,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fb4de6ad-ab81-449a-a91d-73936242e363",
+              "name": "Not Phone Number User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "externalIds",
+                      "value": "664d0db69fcac7cf2e6ec"
+                    },
+                    {
+                      "key": "externalIds",
+                      "value": "664d0db69fcac7cf2e6ec"
+                    },
+                    {
+                      "key": "sources",
+                      "value": "public-api"
+                    },
+                    {
+                      "key": "sources",
+                      "value": "public-api"
+                    },
+                    {
+                      "key": "maxResults",
+                      "value": "10"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 297.16827515865793,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e7fadb5-d91f-458c-9442-ccd0622e2930",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "externalIds",
+                      "value": "664d0db69fcac7cf2e6ec"
+                    },
+                    {
+                      "key": "externalIds",
+                      "value": "664d0db69fcac7cf2e6ec"
+                    },
+                    {
+                      "key": "sources",
+                      "value": "public-api"
+                    },
+                    {
+                      "key": "sources",
+                      "value": "public-api"
+                    },
+                    {
+                      "key": "maxResults",
+                      "value": "10"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 1138.7006076820894,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d1848409-ee2b-4cb3-9a7c-9c44a0eb44f0",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "externalIds",
+                      "value": "664d0db69fcac7cf2e6ec"
+                    },
+                    {
+                      "key": "externalIds",
+                      "value": "664d0db69fcac7cf2e6ec"
+                    },
+                    {
+                      "key": "sources",
+                      "value": "public-api"
+                    },
+                    {
+                      "key": "sources",
+                      "value": "public-api"
+                    },
+                    {
+                      "key": "maxResults",
+                      "value": "10"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 3302.394517428018,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "40dc4491-b2e2-46be-b496-f808b05a27fb",
+              "name": "Unknown Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "externalIds",
+                      "value": "664d0db69fcac7cf2e6ec"
+                    },
+                    {
+                      "key": "externalIds",
+                      "value": "664d0db69fcac7cf2e6ec"
+                    },
+                    {
+                      "key": "sources",
+                      "value": "public-api"
+                    },
+                    {
+                      "key": "sources",
+                      "value": "public-api"
+                    },
+                    {
+                      "key": "maxResults",
+                      "value": "10"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 5731.53889844997,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6a009603-6e77-4408-8d91-9507793b2ae2",
+          "name": "Get a contact by ID",
+          "request": {
+            "name": "Get a contact by ID",
+            "description": {
+              "content": "Retrieve detailed information about a specific contact in your Quo workspace using the contact's unique identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "contacts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8f486fcf-39b2-4b81-8318-5ae2db41cc3f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"664d0db69fcac7cf2e6ec\",\n    \"externalId\": \"664d0db69fcac7cf2e6ec\",\n    \"source\": \"public-api\",\n    \"sourceUrl\": \"https://openphone.co/contacts/664d0db69fcac7cf2e6ec\",\n    \"defaultFields\": {\n      \"company\": \"Quo\",\n      \"emails\": [\n        {\n          \"name\": \"company email\",\n          \"value\": \"abc@example.com\",\n          \"id\": \"acb123\"\n        },\n        {\n          \"name\": \"company email\",\n          \"value\": \"abc@example.com\",\n          \"id\": \"acb123\"\n        }\n      ],\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"phoneNumbers\": [\n        {\n          \"name\": \"company phone\",\n          \"value\": \"+12345678901\",\n          \"id\": \"acb123\"\n        },\n        {\n          \"name\": \"company phone\",\n          \"value\": \"+12345678901\",\n          \"id\": \"acb123\"\n        }\n      ],\n      \"role\": \"Sales\"\n    },\n    \"customFields\": [\n      {\n        \"name\": \"Inbound Lead\",\n        \"type\": \"multi-select\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"key\": \"inbound-lead\",\n        \"id\": \"66d0d87d534de8fd1c433cec3\"\n      },\n      {\n        \"name\": \"Inbound Lead\",\n        \"type\": \"multi-select\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"key\": \"inbound-lead\",\n        \"id\": \"66d0d87d534de8fd1c433cec3\"\n      }\n    ],\n    \"createdAt\": \"2022-01-01T00:00:00Z\",\n    \"updatedAt\": \"2022-01-01T00:00:00Z\",\n    \"createdByUserId\": \"US123abc\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "551f9ad2-3438-4cc7-8a0a-11f072bea352",
+              "name": "Invalid Custom Field Item",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 5963.027773264359,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7432c2fd-dfcc-4c72-b97d-f267dbf7be16",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 6464.792600737626,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e60434ab-c225-489c-9780-8b75049d3dbf",
+              "name": "Not Phone Number User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 297.16827515865793,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ec759c59-a313-4790-8a85-64a29832a42d",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 1138.7006076820894,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd1f9d50-f3f2-43c6-8d98-b534bc4f5b52",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 3302.394517428018,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "014ec31c-8443-4698-9be0-1ebae6477be3",
+              "name": "Unknown Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 5731.53889844997,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f506dae-6af3-4090-afa3-9d11c2d3f227",
+          "name": "Update a contact by ID",
+          "request": {
+            "name": "Update a contact by ID",
+            "description": {
+              "content": "Modify an existing contact in your Quo workspace using the contact's unique identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "contacts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"externalId\": \"<string>\",\n  \"source\": \"<string>\",\n  \"sourceUrl\": \"<uri>\",\n  \"defaultFields\": {\n    \"company\": \"<string>\",\n    \"emails\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\",\n        \"id\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\",\n        \"id\": \"<string>\"\n      }\n    ],\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"phoneNumbers\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\",\n        \"id\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\",\n        \"id\": \"<string>\"\n      }\n    ],\n    \"role\": \"<string>\"\n  },\n  \"customFields\": [\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"<string>\",\n      \"id\": \"<string>\"\n    },\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f16f0d61-02a8-4849-bf50-5b1d3b77f878",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalId\": \"664d0db69fcac7cf2e6ec\",\n  \"source\": \"public-api\",\n  \"sourceUrl\": \"https://openphone.co/contacts/664d0db69fcac7cf2e6ec\",\n  \"defaultFields\": {\n    \"company\": \"Quo\",\n    \"emails\": [\n      {\n        \"name\": \"company email\",\n        \"value\": \"info@openphone.com\",\n        \"id\": \"acb123\"\n      },\n      {\n        \"name\": \"company email\",\n        \"value\": \"info@openphone.com\",\n        \"id\": \"acb123\"\n      }\n    ],\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"phoneNumbers\": [\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+15555555555\",\n        \"id\": \"acb123\"\n      },\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+15555555555\",\n        \"id\": \"acb123\"\n      }\n    ],\n    \"role\": \"Sales\"\n  },\n  \"customFields\": [\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\",\n      \"id\": \"66d0d87d534de8fd1c433cec3\"\n    },\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\",\n      \"id\": \"66d0d87d534de8fd1c433cec3\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": \"664d0db69fcac7cf2e6ec\",\n    \"externalId\": \"664d0db69fcac7cf2e6ec\",\n    \"source\": \"public-api\",\n    \"sourceUrl\": \"https://openphone.co/contacts/664d0db69fcac7cf2e6ec\",\n    \"defaultFields\": {\n      \"company\": \"Quo\",\n      \"emails\": [\n        {\n          \"name\": \"company email\",\n          \"value\": \"abc@example.com\",\n          \"id\": \"acb123\"\n        },\n        {\n          \"name\": \"company email\",\n          \"value\": \"abc@example.com\",\n          \"id\": \"acb123\"\n        }\n      ],\n      \"firstName\": \"John\",\n      \"lastName\": \"Doe\",\n      \"phoneNumbers\": [\n        {\n          \"name\": \"company phone\",\n          \"value\": \"+12345678901\",\n          \"id\": \"acb123\"\n        },\n        {\n          \"name\": \"company phone\",\n          \"value\": \"+12345678901\",\n          \"id\": \"acb123\"\n        }\n      ],\n      \"role\": \"Sales\"\n    },\n    \"customFields\": [\n      {\n        \"name\": \"Inbound Lead\",\n        \"type\": \"multi-select\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"key\": \"inbound-lead\"\n      },\n      {\n        \"name\": \"Inbound Lead\",\n        \"type\": \"multi-select\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"key\": \"inbound-lead\"\n      }\n    ],\n    \"createdAt\": \"2022-01-01T00:00:00Z\",\n    \"updatedAt\": \"2022-01-01T00:00:00Z\",\n    \"createdByUserId\": \"US123abc\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "017991bb-2932-43e0-8848-0df6fef33b43",
+              "name": "Invalid Custom Field Item",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalId\": \"664d0db69fcac7cf2e6ec\",\n  \"source\": \"public-api\",\n  \"sourceUrl\": \"https://openphone.co/contacts/664d0db69fcac7cf2e6ec\",\n  \"defaultFields\": {\n    \"company\": \"Quo\",\n    \"emails\": [\n      {\n        \"name\": \"company email\",\n        \"value\": \"info@openphone.com\",\n        \"id\": \"acb123\"\n      },\n      {\n        \"name\": \"company email\",\n        \"value\": \"info@openphone.com\",\n        \"id\": \"acb123\"\n      }\n    ],\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"phoneNumbers\": [\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+15555555555\",\n        \"id\": \"acb123\"\n      },\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+15555555555\",\n        \"id\": \"acb123\"\n      }\n    ],\n    \"role\": \"Sales\"\n  },\n  \"customFields\": [\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\",\n      \"id\": \"66d0d87d534de8fd1c433cec3\"\n    },\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\",\n      \"id\": \"66d0d87d534de8fd1c433cec3\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 5963.027773264359,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0ed36bdd-14a0-4a90-94d6-c23e0cb1941f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalId\": \"664d0db69fcac7cf2e6ec\",\n  \"source\": \"public-api\",\n  \"sourceUrl\": \"https://openphone.co/contacts/664d0db69fcac7cf2e6ec\",\n  \"defaultFields\": {\n    \"company\": \"Quo\",\n    \"emails\": [\n      {\n        \"name\": \"company email\",\n        \"value\": \"info@openphone.com\",\n        \"id\": \"acb123\"\n      },\n      {\n        \"name\": \"company email\",\n        \"value\": \"info@openphone.com\",\n        \"id\": \"acb123\"\n      }\n    ],\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"phoneNumbers\": [\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+15555555555\",\n        \"id\": \"acb123\"\n      },\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+15555555555\",\n        \"id\": \"acb123\"\n      }\n    ],\n    \"role\": \"Sales\"\n  },\n  \"customFields\": [\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\",\n      \"id\": \"66d0d87d534de8fd1c433cec3\"\n    },\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\",\n      \"id\": \"66d0d87d534de8fd1c433cec3\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 6464.792600737626,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf2f94ac-0dae-452b-a080-0100134fac3a",
+              "name": "Not Phone Number User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalId\": \"664d0db69fcac7cf2e6ec\",\n  \"source\": \"public-api\",\n  \"sourceUrl\": \"https://openphone.co/contacts/664d0db69fcac7cf2e6ec\",\n  \"defaultFields\": {\n    \"company\": \"Quo\",\n    \"emails\": [\n      {\n        \"name\": \"company email\",\n        \"value\": \"info@openphone.com\",\n        \"id\": \"acb123\"\n      },\n      {\n        \"name\": \"company email\",\n        \"value\": \"info@openphone.com\",\n        \"id\": \"acb123\"\n      }\n    ],\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"phoneNumbers\": [\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+15555555555\",\n        \"id\": \"acb123\"\n      },\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+15555555555\",\n        \"id\": \"acb123\"\n      }\n    ],\n    \"role\": \"Sales\"\n  },\n  \"customFields\": [\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\",\n      \"id\": \"66d0d87d534de8fd1c433cec3\"\n    },\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\",\n      \"id\": \"66d0d87d534de8fd1c433cec3\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 297.16827515865793,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d4c9e8b1-9879-43d3-afd2-562b8035d780",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalId\": \"664d0db69fcac7cf2e6ec\",\n  \"source\": \"public-api\",\n  \"sourceUrl\": \"https://openphone.co/contacts/664d0db69fcac7cf2e6ec\",\n  \"defaultFields\": {\n    \"company\": \"Quo\",\n    \"emails\": [\n      {\n        \"name\": \"company email\",\n        \"value\": \"info@openphone.com\",\n        \"id\": \"acb123\"\n      },\n      {\n        \"name\": \"company email\",\n        \"value\": \"info@openphone.com\",\n        \"id\": \"acb123\"\n      }\n    ],\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"phoneNumbers\": [\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+15555555555\",\n        \"id\": \"acb123\"\n      },\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+15555555555\",\n        \"id\": \"acb123\"\n      }\n    ],\n    \"role\": \"Sales\"\n  },\n  \"customFields\": [\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\",\n      \"id\": \"66d0d87d534de8fd1c433cec3\"\n    },\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\",\n      \"id\": \"66d0d87d534de8fd1c433cec3\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 1138.7006076820894,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "db570bc3-f413-4f89-b619-1bed5abf5a76",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalId\": \"664d0db69fcac7cf2e6ec\",\n  \"source\": \"public-api\",\n  \"sourceUrl\": \"https://openphone.co/contacts/664d0db69fcac7cf2e6ec\",\n  \"defaultFields\": {\n    \"company\": \"Quo\",\n    \"emails\": [\n      {\n        \"name\": \"company email\",\n        \"value\": \"info@openphone.com\",\n        \"id\": \"acb123\"\n      },\n      {\n        \"name\": \"company email\",\n        \"value\": \"info@openphone.com\",\n        \"id\": \"acb123\"\n      }\n    ],\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"phoneNumbers\": [\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+15555555555\",\n        \"id\": \"acb123\"\n      },\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+15555555555\",\n        \"id\": \"acb123\"\n      }\n    ],\n    \"role\": \"Sales\"\n  },\n  \"customFields\": [\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\",\n      \"id\": \"66d0d87d534de8fd1c433cec3\"\n    },\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\",\n      \"id\": \"66d0d87d534de8fd1c433cec3\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 3302.394517428018,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "92cc5108-a464-47ee-85ad-639d89cf6ec0",
+              "name": "Unknown Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"externalId\": \"664d0db69fcac7cf2e6ec\",\n  \"source\": \"public-api\",\n  \"sourceUrl\": \"https://openphone.co/contacts/664d0db69fcac7cf2e6ec\",\n  \"defaultFields\": {\n    \"company\": \"Quo\",\n    \"emails\": [\n      {\n        \"name\": \"company email\",\n        \"value\": \"info@openphone.com\",\n        \"id\": \"acb123\"\n      },\n      {\n        \"name\": \"company email\",\n        \"value\": \"info@openphone.com\",\n        \"id\": \"acb123\"\n      }\n    ],\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"phoneNumbers\": [\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+15555555555\",\n        \"id\": \"acb123\"\n      },\n      {\n        \"name\": \"company phone\",\n        \"value\": \"+15555555555\",\n        \"id\": \"acb123\"\n      }\n    ],\n    \"role\": \"Sales\"\n  },\n  \"customFields\": [\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\",\n      \"id\": \"66d0d87d534de8fd1c433cec3\"\n    },\n    {\n      \"value\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key\": \"inbound-lead\",\n      \"id\": \"66d0d87d534de8fd1c433cec3\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 5731.53889844997,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "947c68a7-6f31-48f3-be79-bbbf1b815566",
+          "name": "Delete a contact",
+          "request": {
+            "name": "Delete a contact",
+            "description": {
+              "content": "Delete a contact by its unique identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "contacts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "Authorization"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ff36e009-4c0b-4a1f-af24-a411110af5ed",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1840cb2a-b741-4b19-aa7f-1cb067ec1fe5",
+              "name": "Invalid Custom Field Item",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 5963.027773264359,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0df8d56d-6510-4490-85b0-062f22e4e725",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 6464.792600737626,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a9989620-fcc5-47f2-9a46-61ddca310b8b",
+              "name": "Not Phone Number User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 297.16827515865793,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "91582715-457e-4d71-85dd-99045c4f2ba0",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 1138.7006076820894,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "be1f5394-84a7-42bd-a4b3-2fa4f989ffd6",
+              "name": "Conflict",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 3302.394517428018,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da92424f-51b3-446d-845c-3b02d038d8e2",
+              "name": "Unknown Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "contacts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"code\": \"string\",\n  \"status\": 5731.53889844997,\n  \"docs\": \"string\",\n  \"title\": \"string\",\n  \"trace\": \"string\",\n  \"errors\": [\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    },\n    {\n      \"path\": \"string\",\n      \"message\": \"string\",\n      \"schema\": {\n        \"type\": \"string\"\n      },\n      \"value\": \"\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.quo.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2bf4f374-588b-4962-8b73-40d0d37e7217",
+    "name": "Quo Public Calls Contacts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "API for connecting with Quo.\n\nContact Support:\n Name: Quo Support\n Email: support@quo.com",
+      "type": "text/plain"
+    }
+  }
+}

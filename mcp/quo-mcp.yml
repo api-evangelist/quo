@@ -3,12 +3,10 @@ method: derived
 status: candidate
 source: openapi/quo-public-api-v1.json
 name: Quo API MCP (candidate)
-description: >-
-  Candidate Model Context Protocol tool surface derived from the Quo Public API
-  v1 OpenAPI operations. Quo markets a "Quo MCP" capability on quo.com, but no
-  hosted/remote MCP server endpoint or manifest was discoverable at a public URL
-  as of the derivation date (www.quo.com/mcp returned 404). This is a proposed
-  tool mapping, not an operating server.
+description: Candidate Model Context Protocol tool surface derived from the Quo Public API v1 OpenAPI
+  operations. Quo markets a "Quo MCP" capability on quo.com, but no hosted/remote MCP server endpoint
+  or manifest was discoverable at a public URL as of the derivation date (www.quo.com/mcp returned 404).
+  This is a proposed tool mapping, not an operating server.
 server:
   hosted: null
   transport: null
@@ -59,3 +57,9 @@ tools:
   operationId: createMessageWebhook_v1
   method: POST
   path: /v1/webhooks/messages
+deployment:
+  mode: none
+  verified: derived
+  tools: 11
+  checked: '2026-08-12'
+  source: catalog MCP census
