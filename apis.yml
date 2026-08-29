@@ -349,6 +349,9 @@ apis:
   - type: ChangeLog
     url: changelog/quo-changelog.yml
 common:
+- type: CapabilityMap
+  url: capabilities/quo-capability-edges.yml
+  name: Quo Business Capability Map
 - type: Overlay
   url: overlays/quo-public-api-v1-overlay.yaml
 - type: Website
