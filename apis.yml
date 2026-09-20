@@ -350,6 +350,8 @@ apis:
   - type: ChangeLog
     url: changelog/quo-changelog.yml
 common:
+- type: Plans
+  url: plans/quo-plans-pricing.yml
 - type: CapabilityMap
   url: capabilities/quo-capability-edges.yml
   name: Quo Business Capability Map
