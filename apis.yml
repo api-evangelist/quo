@@ -47,7 +47,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-20'
+modified: '2026-10-06'
 tags:
 - Company
 - Communications
@@ -358,6 +358,10 @@ apis:
   - type: ChangeLog
     url: changelog/quo-changelog.yml
 common:
+- url: https://www.quo.com/blog/
+  type: Blog
+- url: https://www.quo.com/blog/feed/
+  type: BlogRSS
 - type: Plans
   url: plans/quo-plans-pricing.yml
 - type: CapabilityMap
