@@ -32,3 +32,28 @@ plans:
   period: per-use
   unit: message segment
   overage: Rates vary by destination country
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - metered
+  units:
+  - message
+  plans:
+  - name: Local (US and Canada) SMS
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - message
+    periods:
+    - other
+  - name: International SMS
+    access: other
+    model: metered
+    model_how: derived
+    units:
+    - message
+    periods:
+    - other
