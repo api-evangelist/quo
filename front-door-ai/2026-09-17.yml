@@ -7,14 +7,17 @@ front_door_ai:
   probed_at: '2026-09-17'
   host: quo.com
   final_host: www.quo.com
-  ownership: inherited
+  ownership: own
   owner: quo
   shares_host_with: null
-  inherited_from: www.quo.com
+  inherited_from: null
+  alias_of: www.quo.com
   verdict: scored
-  score: null
+  score: 10
+  band: 4
+  band_label: moderate
   host_score: 10
-  density: null
+  density: 14.93
   words: 670
   tiers:
     agentic: 0
