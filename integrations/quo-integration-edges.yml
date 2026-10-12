@@ -1,0 +1,493 @@
+generated: '2026-10-12'
+method: searched
+source:
+- https://zapier.com/apps/quo/integrations
+- https://composio.dev/toolkits/quo
+checked:
+- https://composio.dev/toolkits/quo
+- https://monid.ai/tools/quo
+- https://n8n.io/integrations/quo/
+- https://zapier.com/apps/quo/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: quo
+  url: https://zapier.com/apps/quo/integrations
+  external_url: https://quo.com/?utm_source=partnership&utm_medium=partner&utm_campaign=zapier
+  partner_tier: PLATINUM
+  triggers:
+  - key: call_recording_completed
+    label: Call Recording Completed
+  - key: call_summary
+    label: Call Summary Completed
+  - key: call_transcripts
+    label: Call Transcript Completed
+  - key: incoming_call_completed
+    label: Incoming Call Completed
+  - key: list_phone_numbers
+    label: List Phone Numbers
+  - key: message_delivered
+    label: Outgoing Message Delivered
+  - key: new_incoming_message
+    label: Incoming Message Received
+  - key: outgoing_call_completed
+    label: Outgoing Call Completed
+  actions:
+  - key: contact_update_create
+    label: Create or Update Contact
+  - key: send_message
+    label: Send a Message
+  searches:
+  - key: get_call_recordings
+    label: Get Recordings for a Call
+  - key: get_call_summary
+    label: Get a Summary for a Call
+  - key: get_call_transcription
+    label: Get a Transcription for a Call
+  - key: get_message
+    label: Get a Message by ID
+  - key: list_calls
+    label: List Calls
+  - key: list_conversations
+    label: List Conversations
+  - key: list_messages
+    label: List Messages
+  - key: pone_numbers
+    label: List Phone Numbers
+- marketplace: composio
+  channel: agent-gateway
+  app: quo
+  url: https://composio.dev/toolkits/quo
+  identity: action-prefix
+  actions:
+  - key: QUO_CREATE_CONTACT
+  - key: QUO_CREATE_TASK
+  - key: QUO_CREATE_WEBHOOK
+  - key: QUO_DELETE_CONTACT
+  - key: QUO_DELETE_TASK
+  - key: QUO_DELETE_WEBHOOK
+  - key: QUO_GET_CALL
+  - key: QUO_GET_CALL_VOICEMAIL
+  - key: QUO_GET_CONTACT
+  - key: QUO_GET_MESSAGE
+  - key: QUO_GET_PHONE_NUMBER
+  - key: QUO_GET_TASK
+  - key: QUO_GET_USER
+  - key: QUO_GET_WEBHOOK
+  - key: QUO_GET_WEBHOOK_DELIVERY
+  - key: QUO_LIST_CALLS
+  - key: QUO_LIST_CALL_RECORDINGS
+  - key: QUO_LIST_CONTACTS
+  - key: QUO_LIST_CONTACT_CUSTOM_FIELDS
+  - key: QUO_LIST_CONVERSATIONS
+  - key: QUO_LIST_MESSAGES
+  - key: QUO_LIST_PHONE_NUMBERS
+  - key: QUO_LIST_TASKS
+  - key: QUO_LIST_USERS
+  - key: QUO_LIST_WEBHOOKS
+  - key: QUO_LIST_WEBHOOK_DELIVERIES
+  - key: QUO_SEND_MESSAGE
+  - key: QUO_SEND_MESSAGE_AND_MARK_CONVERSATION_DONE
+  - key: QUO_SET_CONVERSATION_STATUS
+  - key: QUO_SET_TASK_ASSIGNEE
+  - key: QUO_SET_TASK_COMPLETION
+  - key: QUO_SET_TASK_CONVERSATION_LINK
+  - key: QUO_SET_TASK_DUE_DATE
+  - key: QUO_UPDATE_CONTACT
+  - key: QUO_UPDATE_TASK
+  - key: QUO_UPDATE_WEBHOOK
+edges:
+- partner_name: Airtable
+  partner: airtable
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/airtable
+  direction: third-party
+  category: Databases
+  partner_url: https://airtable.com/
+- partner_name: HubSpot
+  partner: hubspot
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/hubspot
+  direction: third-party
+  category: Marketing Automation
+  partner_url: http://www.hubspot.com/
+- partner_name: Facebook Lead Ads
+  partner: facebook-lead-ads
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/facebook-lead-ads
+  direction: third-party
+  category: Ads & Conversion
+  partner_url: https://www.facebook.com/business/ads/lead-ads
+- partner_name: monday.com
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/monday
+  direction: third-party
+  category: Project Management
+  partner_url: https://monday.com/
+- partner_name: Google Calendar
+  partner: google-calendar
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/google-calendar
+  direction: third-party
+  category: Calendar
+  partner_url: https://calendar.google.com/
+- partner_name: Pipedrive
+  partner: pipedrive
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/pipedrive
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://pipedrive.com/
+- partner_name: Acuity Scheduling
+  partner: acuity-scheduling
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/acuity-scheduling
+  direction: third-party
+  category: Scheduling & Booking
+  partner_url: https://acuityscheduling.com/?utm_source=zapier.com&utm_medium=referral&utm_campaign=integration-page
+- partner_name: Jobber
+  partner: jobber
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/jobber
+  direction: third-party
+  category: Scheduling & Booking
+  partner_url: https://www.getjobber.com/plp/zapier?utm_source=Zapier&utm_medium=PLP
+- partner_name: Gmail
+  partner: gmail
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/gmail
+  direction: third-party
+  category: Email
+  partner_url: https://mail.google.com/
+- partner_name: LeadConnector
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/leadconnector
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.leadconnectorhq.com/
+- partner_name: Google Sheets
+  partner: google-sheets
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/google-sheets
+  direction: third-party
+  category: Google
+  partner_url: http://sheets.google.com/
+- partner_name: BookingKoala
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/bookingkoala
+  direction: third-party
+  category: Scheduling & Booking
+  partner_url: https://www.bookingkoala.com/
+- partner_name: Podio
+  partner: podio
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/podio
+  direction: third-party
+  category: Project Management
+  partner_url: https://podio.com/
+- partner_name: Notion
+  partner: notion
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/notion
+  direction: third-party
+  category: Task Management
+  partner_url: https://www.notion.so/
+- partner_name: Follow Up Boss
+  partner: follow-up-boss
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/follow-up-boss
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: http://www.followupboss.com/
+- partner_name: Google Forms
+  partner: google-forms
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/google-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://google.com/
+- partner_name: ClickUp
+  partner: clickup
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/clickup
+  direction: third-party
+  category: Project Management
+  partner_url: https://clickup.com/zapier
+- partner_name: ClickFunnels Classic
+  partner: clickfunnels
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/clickfunnels-classic
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.clickfunnels.com/
+- partner_name: Wix
+  partner: wix
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/wix
+  direction: third-party
+  category: Website Builders
+  partner_url: https://www.wix.com/
+- partner_name: Gravity Forms
+  partner: gravity-forms
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/gravity-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.gravityforms.com/?utm_campaign=partners&utm_source=zapier-listing-learn-more&utm_medium=free-placement
+- partner_name: Calendly
+  partner: calendly
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/calendly
+  direction: third-party
+  category: Scheduling & Booking
+  partner_url: https://calendly.com/?utm_medium=partner&utm_source=zapier&utm_campaign=main_partner_page&utm_content=main_inbound_link
+- partner_name: Fillout Forms
+  partner: fillout
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/fillout
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.fillout.com/?ref=zapier
+- partner_name: Slack
+  partner: slack
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/slack
+  direction: third-party
+  category: Team Chat
+  partner_url: https://slack.com/
+- partner_name: Shopify
+  partner: shopify
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/shopify
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.shopify.com/
+- partner_name: Trello
+  partner: trello
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/trello
+  direction: third-party
+  category: Project Management
+  partner_url: https://trello.com/
+- partner_name: Tally
+  partner: tally
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/tally
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://try.tally.so/zapier
+- partner_name: Jotform
+  partner: jotform
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/jotform
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://www.jotform.com/
+- partner_name: ActiveCampaign
+  partner: activecampaign
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/activecampaign
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.activecampaign.com/?utm_source=unpaid_syndication_website&utm_medium=referral&utm_campaign=zapier_listing
+- partner_name: Microsoft Outlook
+  partner: microsoft-outlook
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/microsoft-outlook
+  direction: third-party
+  category: Calendar
+  partner_url: https://outlook.live.com/
+- partner_name: Square
+  partner: square
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/quo/integrations/square
+  direction: third-party
+  category: eCommerce
+  partner_url: https://squareup.com/t/cmtp_performance/pr_developers/d_partnerships/p_zapier/?route=
+templates:
+- title: Create or update Quo contacts for new Jobber clients
+  url: https://zapier.com/apps/jobber/integrations/quo/1221262/create-or-update-quo-contacts-for-new-jobber-clients
+  apps:
+  - jobber
+  - quo
+- title: Send messages in Quo with new or updated spreadsheet rows in Google Sheets
+  url: https://zapier.com/apps/google-sheets/integrations/quo/969427/send-messages-in-quo-with-new-or-updated-spreadsheet-rows-in-google-sheets
+  apps:
+  - google-sheets
+  - filter
+  - quo
+- title: Store new Quo call recordings to rows in Google Sheets
+  url: https://zapier.com/apps/google-sheets/integrations/quo/492792/store-new-quo-call-recordings-to-rows-in-google-sheets
+  apps:
+  - quo
+  - google-sheets
+- title: Create or update Quo contacts for new ZenMaid contacts
+  url: https://zapier.com/apps/quo/integrations/zenmaid-nWD/1305684/create-or-update-quo-contacts-for-new-zenmaid-contacts
+  apps:
+  - zenmaid-nWD
+  - quo
+- title: Create or update Quo contacts from new Jotform submissions
+  url: https://zapier.com/apps/jotform/integrations/quo/1272452/create-or-update-quo-contacts-from-new-jotform-submissions
+  apps:
+  - jotform
+  - quo
+- title: Send a message in Quo for new submissions in Jotform
+  url: https://zapier.com/apps/jotform/integrations/quo/1601759/send-a-message-in-quo-for-new-submissions-in-jotform
+  apps:
+  - jotform
+  - quo
+- title: Log new incoming Quo text messages in Google Sheets rows
+  url: https://zapier.com/apps/google-sheets/integrations/quo/488487/log-new-incoming-quo-text-messages-in-google-sheets-rows
+  apps:
+  - quo
+  - google-sheets
+- title: Send Quo SMS messages for new rows in Google Sheets
+  url: https://zapier.com/apps/google-sheets/integrations/quo/529541/send-quo-sms-messages-for-new-rows-in-google-sheets
+  apps:
+  - google-sheets
+  - quo
+- title: Create or update Quo contacts when new clients are created in Jobber
+  url: https://zapier.com/apps/jobber/integrations/quo/1758087/create-or-update-quo-contacts-when-new-clients-are-created-in-jobber
+  apps:
+  - jobber
+  - quo
+- title: Create or update Quo contacts when new JobTread customer contacts are created
+  url: https://zapier.com/apps/jobtread/integrations/quo/1648772/create-or-update-quo-contacts-when-new-jobtread-customer-contacts-are-created
+  apps:
+  - jobtread
+  - quo
+- title: Manage new or updated reservations in Hospitable by creating or updating contacts in Quo
+  url: https://zapier.com/apps/hospitable/integrations/quo/255648411/manage-new-or-updated-reservations-in-hospitable-by-creating-or-updating-contacts-in-quo
+  apps:
+  - hospitable
+  - quo
+- title: Create or update Quo contacts when new people are added in Pipedrive
+  url: https://zapier.com/apps/pipedrive/integrations/quo/1608405/create-or-update-quo-contacts-when-new-people-are-added-in-pipedrive
+  apps:
+  - pipedrive
+  - quo
+template_total: 1163
