@@ -167,7 +167,6 @@
   arazzo: null
 - slug: quo-monday-com
   label: monday.com
-  partner: monday-com
   partner_name: monday.com
   category: Project Management
   type: marketplace
@@ -175,7 +174,7 @@
   channel: ipaas-usage
   evidence: https://zapier.com/apps/quo/integrations/monday
   source: edge
-  status: pending-generation
+  status: pending-partner-spec
   arazzo: null
 - slug: quo-google-calendar
   label: Google Calendar
@@ -438,4 +437,17 @@
   evidence: https://zapier.com/apps/quo/integrations/square
   source: edge
   status: pending-generation
+  arazzo: null
+- slug: quo-stripe-own
+  label: Stripe (own)
+  partner: stripe
+  partner_name: Stripe (own)
+  category: productivity
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.stripe.com/apps/quo
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
   arazzo: null
